@@ -1,6 +1,9 @@
 # SKHU 단체(소모임 & 동아리) 활성 웹 서비스
 ### 3주 / 의사소통 / 주석
 
+## Database Prototype
+![DB](./img/skhu_club_db.png)
+
 ## TODO
 * model 관계 설정 및 확인
 * 승래 - devise custom
