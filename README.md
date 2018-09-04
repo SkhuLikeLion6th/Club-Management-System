@@ -12,10 +12,10 @@
 * 결, 다은 - Front Prototype
 
 ## CRUD
-C: Create
-R: Read
-U: Update
-D: Delete
+* **C: Create**
+* **R: Read**
+* U: **Update**
+* D: **Delete**
 
 ## Front-End
 * 로그인 & 회원가입
