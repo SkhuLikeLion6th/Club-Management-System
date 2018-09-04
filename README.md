@@ -5,7 +5,7 @@
 ![DB](./img/skhu_club_db.png)
 
 ## TODO
-* model 관계 설정 및 확인
+* model 관계 설정 및 확인 (현재 Notice, Ad는 없음)
 * 승래 - devise custom
 * 진경 - Apply_Forms & Apply_Contents
 * 현수 - Clubs & Club_Members & Options
@@ -14,8 +14,8 @@
 ## CRUD
 * **C: Create**
 * **R: Read**
-* U: **Update**
-* D: **Delete**
+* **U: Update**
+* **D: Delete**
 
 ## Front-End
 * 로그인 & 회원가입
