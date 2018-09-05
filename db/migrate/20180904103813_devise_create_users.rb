@@ -4,8 +4,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email,              null: false, default: "" #학번
       t.string :encrypted_password, null: false, default: ""
+      
+      #추가
+      t.integer :department_id, null: false #학과
+      t.string :name, null: false           
+      t.string :phone_number, null: false
+      t.string :mail, null: false
+      t.string :grade, null: false
+      t.string :authorization, default: 2   #0관리자 1운영진 2일반사용자
 
       ## Recoverable
       t.string   :reset_password_token
