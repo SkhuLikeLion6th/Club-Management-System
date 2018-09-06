@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20180904105109) do
   end
 
   create_table "departments", force: :cascade do |t|
-    t.string   "deparment_name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "department_name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "options", force: :cascade do |t|

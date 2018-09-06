@@ -41,7 +41,7 @@
 * 각 단체의 지원자 조회 R (Club Admin)
 * 각 단체의 Options Table U (Club Admin)
 * 전체 회원 목록 R (Super Admin)
-* 회원 권현 변경 U (Super Admin)
+* 회원 권한 변경 U (Super Admin)
 * 단체 CD (Super Admin)
 
 ## Author

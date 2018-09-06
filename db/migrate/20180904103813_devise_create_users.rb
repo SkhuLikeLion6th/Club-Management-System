@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :phone_number, null: false
       t.string :mail, null: false
       t.string :grade, null: false
-      t.string :authorization, default: 2   #0관리자 1운영진 2일반사용자
+      t.string :authorization, default: 2   #0 사이트 관리자, 1 단체 관리자, 2 일반
 
       ## Recoverable
       t.string   :reset_password_token

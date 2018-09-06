@@ -23,3 +23,8 @@ Department.create(department_name: '기독교문화')
 ## 단체 (동아리, 소모임)
 Club.create(club_name: '멋쟁이사자처럼')
 Club.create(club_name: '개발자들')
+
+# 유저(일반, 단체 관리자, 사이트 관리자)
+User.create(email: 'admin', password: '123456',
+            department_id: 1, name: '사이트 관리자', phone_number: '000-0000-0000',
+            mail: 'admin@admin', grade: '0', authorization: 0)
