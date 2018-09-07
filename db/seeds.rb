@@ -28,3 +28,9 @@ Club.create(club_name: '개발자들')
 User.create(email: 'admin', password: '123456',
             department_id: 1, name: '사이트 관리자', phone_number: '000-0000-0000',
             mail: 'admin@admin', grade: '0', authorization: 0)
+User.create(email: 'likelion_admin', password: '123456',
+            department_id: 1, name: '멋쟁이 사자처럼 관리자', phone_number: '000-0000-0000',
+            mail: 'admin@admin', grade: '0', authorization: 1)
+            
+# 단체 소속
+ClubMember.create(club_id: 1, user_id: 2) # 멋쟁이 사자처럼 소속

@@ -1,0 +1,11 @@
+<h1>지원양식 수정 페이지</h1>
+
+<form action = "/apply_form/update/<%=@form.club_id%>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    title1 : <input type="text" name="title1" value=<%=@form.title1 %>><br>
+    title2 : <input type="text" name="title2" value=<%=@form.title2 %>><br>
+    title3 : <input type="text" name="title3" value=<%=@form.title3 %>><br>
+    title4 : <input type="text" name="title4" value=<%=@form.title4 %>><br>
+    title5 : <input type="text" name="title5" value=<%=@form.title5 %>><br>
+    <input type="submit" value="저장">
+</form>

@@ -1,0 +1,5 @@
+<h1>클럽 목록을 보여줌.</h1>
+<% @clubs.each do |x| %>
+    <a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a><br>
+<%end%>
+<a href="/club/new_club">그룹 만들기</a>
