@@ -1,5 +1,12 @@
 <h1>클럽 목록을 보여줌.</h1>
+<% if user_signed_in? %>
+    <p>유저 권한: <%= current_user.authorization %></p>
+<% end %>
 <% @clubs.each do |x| %>
-    <a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a><br>
+    <a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a>
+    <% if user_signed_in? && current_user.authorization == '0' %>
+        <a href="/club/delete_club/<%= x.id %>">삭제</a>
+    <% end %>
+    <br>
 <%end%>
 <a href="/club/new_club">그룹 만들기</a>

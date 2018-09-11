@@ -42,13 +42,15 @@
 * 각 단체의 Options Table U (Club Admin)
 * 전체 회원 목록 R (Super Admin)
 * 회원 권한 변경 U (Super Admin)
-* 단체 CD (Super Admin)
+* 단체 CD (Super Admin)                     * 완성(현수)
 
 ## Author
 * 김승래
+    * 
 * 함진경
     * 지원 양식 작성,수정
 * 박결
 * 한현수
     * seed에 어드민 추가
+    * club CD(사이트 관리자만 가능) 완성
 * 홍다은

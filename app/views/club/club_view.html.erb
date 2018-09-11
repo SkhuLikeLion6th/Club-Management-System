@@ -1,10 +1,17 @@
 <h1>각 단체의 소개</h1>
 <form action = "/club/club_view/<%= @club.id %>" method="get">
+    <!--단체의 이미지, 이름, 소개-->
     <% unless @club.img_url.nil? %> 
         <img src="<%= @club.img_url %>"/> 
     <% end %>
     <p><%= @club.club_name %></p>
     <p><%= @club.introduce %></p>
-    <a href="/club/club_members_view"><%= @club.club_name %> 회원 목록</a>
+    
+    <!--단체의 회원 목록-->
+    <% @members.each do |x| %>
+        <% if x.club.id == @club.id %>
+            <p><%= x.id %></p>
+        <% end %>
+    <% end %>
     <a href="/club/index">되돌아가기</a>
 </form>
