@@ -8,7 +8,8 @@ class ApplyFormController < ApplicationController
 
   def create
     @form = ApplyForm.new
-    @form.club_id = params[:club_id]
+    user = ClubMember.find(params[:user_id])
+    @form.club_id = user.club_id
     @form.title1 = params[:title1]
     @form.title2 = params[:title2]
     @form.title3 = params[:title3]

@@ -1,8 +1,11 @@
 <h1>저장된 지원 양식 보여주는 페이지</h1>
 
+현재 로그인 id: <%= current_user.id %>
+<br><br>
 <a href="/apply_form/new">지원 양식 작성하기</a>
 <br><br>
 <% @forms.each do |x| %>
+<%if x.club_id == ClubMember.find(current_user.id).club_id %>
     club_id : <%=x.club_id%><br>
     title1 : <%=x.title1%><br>
     title2 : <%=x.title2%><br>
@@ -10,5 +13,7 @@
     title4 : <%=x.title4%><br>
     title5 : <%=x.title5%><br>
     <a href="/apply_form/edit/<%=x.id%>">수정</a>
+    <a href="/apply_content/new/<%=x.id%>">지원하기</a>
     <hr>
+<% end %>
 <%end%>

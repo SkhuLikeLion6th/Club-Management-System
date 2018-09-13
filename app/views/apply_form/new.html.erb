@@ -1,9 +1,7 @@
 <h1>지원양식 생성 페이지</h1>
 
-<!--club_id를 입력받지 않고 가져와야?-->
-<form action="/apply_form/create/" method="post">
+<form action="/apply_form/create/<%= current_user.id %>" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    club : <input type="text" name="club_id"><br>
     title1 : <input type="text" name="title1"><br>
     title2 : <input type="text" name="title2"><br>
     title3 : <input type="text" name="title3"><br>

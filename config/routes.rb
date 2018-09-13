@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'apply_content/create'
+
   devise_for :users
   # club을 삭제하는 라우트
   get 'club/delete_club/:club_id' => 'club#delete_club'
@@ -16,15 +18,20 @@ Rails.application.routes.draw do
   
   ###################################
   
-  get 'apply_form/index' #지원양식 테스트 페이지
+  ##지원양식 테스트 페이지
+  get 'apply_form/index' 
 
   get 'apply_form/new'
 
-  post 'apply_form/create'
+  post 'apply_form/create/:user_id' => 'apply_form#create'
   
   get 'apply_form/edit/:club_id' => 'apply_form#edit'
   
   post 'apply_form/update/:club_id' => 'apply_form#update'
+  
+  get 'apply_content/new/:apply_form_id' => 'apply_content#new'
+  
+  post 'apply_content/create/:apply_form_id' => 'apply_content#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

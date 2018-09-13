@@ -10,8 +10,9 @@
     <!--단체의 회원 목록-->
     <% @members.each do |x| %>
         <% if x.club.id == @club.id %>
-            <p><%= x.id %></p>
+            <p><%= x.user.name %></p>
         <% end %>
     <% end %>
+    
     <a href="/club/index">되돌아가기</a>
 </form>
