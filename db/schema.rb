@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180904105109) do
+ActiveRecord::Schema.define(version: 20180914073116) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 20180904105109) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "grades", force: :cascade do |t|
+    t.string   "grade_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "options", force: :cascade do |t|
     t.integer  "club_id"
     t.integer  "apply_active"
@@ -70,7 +76,7 @@ ActiveRecord::Schema.define(version: 20180904105109) do
     t.string   "name",                                 null: false
     t.string   "phone_number",                         null: false
     t.string   "mail",                                 null: false
-    t.string   "grade",                                null: false
+    t.integer  "grade_id",                             null: false
     t.string   "authorization",          default: "2"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -35,22 +35,25 @@
 * 현재 지원 가능 단체 모아보기 R
 * 각 단체의 Notice 게시판의 CRUD
 * 통합 Ad 게시판의 CRUD
-* 각 단체의 회원 명단 R
+* 각 단체의 회원 명단 RD(Club Admin)        * 완성(현수)
 * 각 단체의 소개 U (Club Admin)
-* 각 단체의 지원 양식 U (Club Admin)
+* 각 단체의 지원 양식 U (Club Admin)        * 완성(진경)
 * 각 단체의 지원자 조회 R (Club Admin)
 * 각 단체의 Options Table U (Club Admin)
-* 전체 회원 목록 R (Super Admin)
-* 회원 권한 변경 U (Super Admin)
+* 전체 회원 목록 R (Super Admin)            * 완성(현수)
 * 단체 CD (Super Admin)                     * 완성(현수)
 
 ## Author
 * 김승래
-    * 
+    * devise 커스텀완료
+    * 회원정보수정 작업중
 * 함진경
-    * 지원 양식 작성,수정
+    * 지원 양식 작성, 수정 완료
+    * 지원하기 하는 중~
 * 박결
 * 한현수
     * seed에 어드민 추가
-    * club CD(사이트 관리자만 가능) 완성
+    * 단체 CD(사이트 관리자만 가능) 완성
+    * 각 단체의 회원 명단록 RD(단체에 속해있는 일반 유저(p태그), 해당 단체 관리자 또는 사이트 관리자(a태그)) 완성
+    * 전체 회원 목록 R 완성
 * 홍다은

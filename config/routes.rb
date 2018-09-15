@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
+  root 'front#index'
+  
   get 'apply_content/create'
 
   devise_for :users
+  # club_member를 전체를 보여주는 라우트
+  get 'club/club_members'
+  
+  # club_member를 삭제하는 라우트
+  get 'club/delete_club_member/:club_member_id' => 'club#delete_club_member'
+  
+  # club을 수정하는 라우트
+  get 'club/edit_club/:club_id' => 'club#edit_club'
+  
+  post 'club/update_club/:club_id' => 'club#update_club'
+  
   # club을 삭제하는 라우트
   get 'club/delete_club/:club_id' => 'club#delete_club'
   
@@ -18,20 +31,30 @@ Rails.application.routes.draw do
   
   ###################################
   
-  ##지원양식 테스트 페이지
-  get 'apply_form/index' 
+  ## 지원양식 관련 routes ##
+  # 지원양식목록 및 테스트 페이지
+  get 'apply_form/index'
 
-  get 'apply_form/new'
-
+  # 지원양식 생성
+  get 'apply_form/new'  
   post 'apply_form/create/:user_id' => 'apply_form#create'
   
+  # 지원양식 수정
   get 'apply_form/edit/:club_id' => 'apply_form#edit'
-  
   post 'apply_form/update/:club_id' => 'apply_form#update'
   
-  get 'apply_content/new/:apply_form_id' => 'apply_content#new'
+  ## 지원내용 관련 routes ##
+  # 지원내용 확인
+  get 'apply_content/index'
   
-  post 'apply_content/create/:apply_form_id' => 'apply_content#create'
+  # 지원서 작성
+  get 'apply_content/new/:club_id' => 'apply_content#new'
+  post 'apply_content/create/:club_id/:user_id' => 'apply_content#create'
+  
+  #####################################
+  
+  #프론트 작업
+  get 'front/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,8 @@
+<h1>전체 회원 목록</h1>
+<!--전체 클럽 멤버를 보여주는 페이지. 프론트가 짜지면 표형식으로 이름, 전화번호 등으로 짤 것임-->
+<% @members.each do |x| %>
+    <a><%= x.user.name %></a>
+    <a><%= x.club.club_name %></a>
+    <a href = "/club/delete_club_member/<%= x.id %>">삭제</a><br>
+    <br>
+<% end %>

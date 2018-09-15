@@ -1,3 +1,4 @@
+<div class="content-outline">
 <h1>각 단체의 소개</h1>
 <form action = "/club/club_view/<%= @club.id %>" method="get">
     <!--단체의 이미지, 이름, 소개-->
@@ -8,11 +9,25 @@
     <p><%= @club.introduce %></p>
     
     <!--단체의 회원 목록-->
-    <% @members.each do |x| %>
-        <% if x.club.id == @club.id %>
-            <p><%= x.user.name %></p>
+    <% if user_signed_in? %> <!--로그인을 확인하는 if문 -->
+        <% @members.each do |x| %>
+            <% if x.club.id == @club.id %> <!-- 현재 보고있는 클럽아이디와 각각의 멤버의 클럽아이디가 같은 것만 보여준다.-->
+                <!--현재 로그인 되어있는 아이디가 보고있는 클럽에 속해있고 일반유저이면 p태그로 현재 멤버들을 보여준다.-->
+                <%# if current_user.authorization == '0' or (@current_check_club.club_id == @club.id && current_user.authorization == '1') %>
+                    <a href = "#"><%= x.user.name %></a>
+                    <a href = "/club/delete_club_member/<%= x.id %>">삭제</a><br>
+                <!--현재 로그인 되어있는 아이디가 보고있는 클럽에 속해있고 단체 관리자 또는 사이트 관리자이면 a태그로 현재 멤버들을 보여준다.-->
+                <%# elsif @current_check_club.club_id == @club.id && current_user.authorization == '2' %>
+                    <p><%= x.user.name %></p>
+                <%# end %>
+            <% end %>
         <% end %>
     <% end %>
     
+    <!--지원하기-->
+    <!--근데 지원가능한 상태 일때만 보이게 해야겠지? 이건 나중에 생각합시다-->
+    <a href="/apply_content/new/<%=@club.id%>">지원하기</a>
+    
     <a href="/club/index">되돌아가기</a>
 </form>
+</div>

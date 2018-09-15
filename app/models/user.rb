@@ -6,4 +6,5 @@ class User < ApplicationRecord
          
   has_many :club_members
   belongs_to :department
+  belongs_to :grade
 end

@@ -1,19 +1,28 @@
 <h1>저장된 지원 양식 보여주는 페이지</h1>
+현재 로그인: <%= current_user.name %><br><br>
 
-현재 로그인 id: <%= current_user.id %>
-<br><br>
-<a href="/apply_form/new">지원 양식 작성하기</a>
-<br><br>
-<% @forms.each do |x| %>
-<%if x.club_id == ClubMember.find(current_user.id).club_id %>
-    club_id : <%=x.club_id%><br>
-    title1 : <%=x.title1%><br>
-    title2 : <%=x.title2%><br>
-    title3 : <%=x.title3%><br>
-    title4 : <%=x.title4%><br>
-    title5 : <%=x.title5%><br>
-    <a href="/apply_form/edit/<%=x.id%>">수정</a>
-    <a href="/apply_content/new/<%=x.id%>">지원하기</a>
-    <hr>
+<!--동아리 관리자만 지원 양식을 볼 수 있어야 함-->
+<% if current_user.authorization == '1' %>
+    <!--현재 로그인자의 클럽아이디를 찾아서 변수에 저장해둠(필요할때마다 일일이 찾기 귀찮아서ㅋ)-->
+    <%current_user_club_id=ClubMember.find_by_user_id(current_user.id).club_id%>
+    <!--자신의 동아리에 지원 양식이 없는 경우-->
+        <% if @forms.find_by_club_id(current_user_club_id)==nil%>
+            동아리 이름: <%=Club.find(current_user_club_id).club_name%>
+            <a href="/apply_form/new">지원 양식 작성하기</a><br><br>
+        <% end %>
+    <!--자신의 동아리에 지원 양식이 이미 있는 경우-->
+    <% @forms.each do |x| %>
+        <!--자신이 속한 동아리 지원 양식만 보이도록 해야함-->
+        <% if x.club_id == current_user_club_id %>
+            동아리 이름: <%=Club.find(x.club_id).club_name%><br>
+            title1: <%=x.title1%><br>
+            title2: <%=x.title2%><br>
+            title3: <%=x.title3%><br>
+            title4: <%=x.title4%><br>
+            title5: <%=x.title5%><br>
+            <a href="/apply_form/edit/<%=x.club_id%>">수정하기</a>
+            <hr>
+        <% end %>
+    <% end %>
+    
 <% end %>
-<%end%>

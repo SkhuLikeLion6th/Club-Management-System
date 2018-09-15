@@ -13,3 +13,92 @@
  *= require_tree .
  *= require_self
  */
+@font-face { font-family: 'SDMiSaeng'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDMiSaeng.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    display: block;
+    position: fixed;
+    top:0;
+    right:0;
+    left: 0;
+    margin: auto;
+}
+
+.header-wrapper{
+    position: relative;
+}
+
+.header-content{
+    margin: auto;
+    display: flex;
+    width: 1440px;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+}
+
+.flex-control{
+    
+}
+
+.logo-link{
+    flex: none;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.logo{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.menu-pink{
+    font-family: 'NanumSquareRound';
+    font-size: 15px;
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 10px;
+    color: white;
+    background-color: #FFD0D6;
+}
+
+.menu-yellow{
+    font-family: 'NanumSquareRound';
+    font-size: 15px;
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 10px;
+    color: white;
+    background-color: #FEE19F;
+}
+
+.content{
+    width: 1000px;
+    margin: auto;
+}
+
+.content-main{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.content-outline{
+    margin-top: 250px;
+}
+
+.thumnail-in-main{
+    width: 90px;
+    margin-bottom: 7px;
+}

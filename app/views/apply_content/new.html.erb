@@ -1,12 +1,28 @@
 <h1>지원서 작성 페이지</h1>
-
-<form action="/apply_content/create/<%= @content.apply_form_id %>" method="post">
+<%=@apply_form.id%>
+<form action="/apply_content/create/<%=@apply_form%>/<%= current_user.id %>" method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= @content.title1 %>
-    content1 : <textarea name="content1"></textarea><br>
-    content2 : <textarea name="content2"></textarea><br>
-    content3 : <textarea name="content3"></textarea><br>
-    content4 : <textarea name="content4"></textarea><br>
-    content5 : <textarea name="content5"></textarea><br>
+    <!--title에 해당하는 내용이 없으면 안보이게하고 content도 입력받지 않아야한다.-->
+    <% if @apply_form.title1!=nil %>
+    title1: <%= @apply_form.title1 %> <br>
+    content1 : <textarea name="content1"></textarea><br><br>
+    <% end %>
+    <% if @apply_form.title2!=nil %>
+    title2: <%= @apply_form.title2 %> <br>
+    content2 : <textarea name="content2"></textarea><br><br>
+    <% end %>
+    <% if @apply_form.title3!=nil %>
+    title3: <%= @apply_form.title3 %> <br>
+    content3 : <textarea name="content3"></textarea><br><br>
+    <% end %>
+    <% if @apply_form.title4!=nil %>
+    title4: <%= @apply_form.title4 %> <br>
+    content4 : <textarea name="content4"></textarea><br><br>
+    <% end %>
+    <% if @apply_form.title5!=nil %>
+    title5: <%= @apply_form.title5 %> <br>
+    content5 : <textarea name="content5"></textarea><br><br>
+    <% end %>
+    
     <input type="submit" value="제출">
 </form>
