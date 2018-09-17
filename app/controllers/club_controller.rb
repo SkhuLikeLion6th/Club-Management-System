@@ -36,9 +36,9 @@ class ClubController < ApplicationController
   end
   
   def edit_club # 클럽을 불러오는 함수
-    if user_signed_in? && current_user.authorization == '0' # 로그인이 되어있고 로그인 권한이 0이면 클럽을 지울수 있다.
+    if user_signed_in? && (current_user.authorization == '0' || current_user.authorization == '1') # 로그인이 되어있고 로그인 권한이 0, 1이면 클럽을 수정할수 있다.
       @club = Club.find(params[:club_id])
-      
+      if @club.user.id != ClubMember.find_by_user_id
     else
       redirect_to '/club/index'
     end

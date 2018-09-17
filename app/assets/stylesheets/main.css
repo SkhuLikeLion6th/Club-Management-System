@@ -1,0 +1,20 @@
+.content-outline{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.content{
+    width: 1000px;
+    margin: auto;
+}
+
+.content-main{
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+.thumnail-in-main{
+    width: 90px;
+    margin-bottom: 7px;
+}

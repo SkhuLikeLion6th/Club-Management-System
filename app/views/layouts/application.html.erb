@@ -1,41 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+  
+	<!-- meta data -->
+	<meta charset="UTF-8">
+	<meta name="author" content="BE: 김승래, 함진경, 한현수 / FE: 박결, 홍다은">
+	<meta name="description" content="성공회대 모임 찾기/가입 플렛폼입니다.">
+	<meta name="keywords" content="성공회대, 동아리, 소모임, 학생회, 단체"> 	
+    
+    <!--title-->
   <title>Ari Check</title>
+  
+    <!--style-->
+	<link rel="stylesheet" href="assets/reset.css">
+	<link rel="stylesheet" href="assets/login_style.css">
+  
+    <!--link-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
+  
+  <!--nav bar-->
   <div class="header">
     <div class="header-wrapper">
         <div class="header-content">
             <div class="menu">
                 <!--<a class="menu-yellow" href="#">전체 회원 목록</a> 사이트 관리자만 볼 수 있음-->
-                <div class="flex-control">
-                    <a class="menu-pink" href="/club/index">동아리 목록</a>
-                    <a class="menu-yellow" href="#">현재 가입 가능 동아리</a>
-                    <a class="menu-pink" href="#">내 정보</a>
-                </div>
+                <a class="menu-pink" href="/club/index">동아리 목록</a>
+                <a class="menu-yellow" href="#">현재 가입 가능 동아리</a>
+                <a class="menu-pink" href="#">내 정보</a>
             </div>
             <a class="logo-link" href="/">
                 <img class="logo" src="/assets/logo.png" alt="logo-img" width="300px">
             </a>
             <div class="menu">
-                <div class="flex-control">
-                    <a class="menu-yellow" href="#">회의록</a>
-                    <a class="menu-yellow" href="#">회의록</a>
-                    <a class="menu-pink" href="#">내 정보</a>
-                    <a class="menu-yellow" href="#">로그아웃</a>
-                </div>
+                <a class="menu-yellow" href="#">회의록</a>
+                <a class="menu-pink" href="#">회의록</a>
+                
+				      <% if current_user == nil %>
+  				  		<a class="menu-yellow" href="/users/sign_in">로그인</a>
+  				  		<a class="menu-pink" href="/users/sign_up">회원가입</a>
+				        
+				      <% else %>
+    			      <a class="menu-yellow" href="#">내 정보</a>
+    		  		  <a class="menu-pink" href="/users/sign_out">로그아웃</a>
+				      <% end %>
+				      
             </div>
         </div>
     </div>
   </div>
 
 <%= yield %>
+
+<footer>
+  <div class="footer-outline">
+    <div class="footer-content">
+      <div class="footer-top">
+        <img src="/assets/logo-footer.png" alt="logo-footer" class="logo-footer">
+        <div class="footer-menu">
+          <a href="#" class="menu-item">회사소개</a>
+          <a href="#" class="menu-item">공지사항</a>
+          <a href="#" class="menu-item">고객센터</a>
+          <a href="#" class="menu-item">이용약관/개인정보 취급방침</a>
+        </div>
+        <div class="social-buttons">
+          <img src="/assets/facebook.png" alt="facebook" class="social-img">
+          <img src="/assets/twitter.png" alt="twitter" class="social-img">
+          <img src="/assets/instagram.png" alt="instagram" class="social-img">
+        </div>
+      </div>
+      
+      <div class="footer-description">
+        <p>상호: 주식회사 아리체크</p>
+        <p>주소: 서울시 구로구 </p>
+        <p>대표번호: 070-0000-0000</p>
+        <p>고객문의: aricheck@gmail.com</p>
+      </div>
+      
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

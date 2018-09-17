@@ -61,7 +61,7 @@ User.create(email: 'devdogs_user2', password: '123456',
             department_id: 3, name: '개발자들 회원2', phone_number: '000-0000-0000',
             mail: 'devdogs@user2', grade_id: '0', authorization: 2)
 
-# 어떤 단체에도 소속되어있지 않은 회원            
+# 어떤 단체에도 소속되어있지 않은 회원
 User.create(email: '201635034', password: '123456',
             department_id: 3, name: '일반인', phone_number: '000-0000-0000',
             mail: 'guest@user', grade_id: '0', authorization: 2)
@@ -78,4 +78,11 @@ ClubMember.create(club_id: 2, user_id: 7)
 
 #지원 양식
 ApplyForm.create(club_id: 1, title1: '멋사 질문1', title2: '멋사 질문2', title3: '멋사 질문3', title4: '멋사 질문4', title5: '멋사 질문5')
-ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자들 질문2', title3: '개발자들 질문3', title4: '개발자들 질문4', title5: '개발자들 질문5')
+ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자들 질문2', title3: '개발자들 질문3')
+
+#지원 내용
+ApplyContent.create(apply_form_id: 1, user_id: 8, content1: "안녕하세요!", content2: "멋쟁이", content3: "사자가", content4: "되고", content5: "싶습니다.")
+
+
+
+

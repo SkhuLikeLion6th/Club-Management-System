@@ -1,11 +1,15 @@
 class ApplyContentController < ApplicationController
+  def index
+    @forms = ApplyForm.all
+    @apply_contents= ApplyContent.all
+  end
   def new
     @apply_form = ApplyForm.find_by(:club_id => params[:club_id])
   end
   
   def create
     @apply_content = ApplyContent.new
-    @apply_content.apply_form_id = @apply_form #흐음.....
+    @apply_content.apply_form_id = params[:apply_form_id]
     @apply_content.user_id = params[:user_id]
     @apply_content.content1 = params[:content1]
     @apply_content.content2 = params[:content2]

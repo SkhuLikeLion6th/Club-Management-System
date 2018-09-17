@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   protected
-  
   def configure_permitted_parameters
     added_attrs = [:department_id, :name, :phone_number, :mail, :grade_id]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

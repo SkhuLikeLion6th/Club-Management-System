@@ -15,20 +15,20 @@
     <p>비밀번호 확인</p>
     <input type="password" name="user[password_confirmation]" placeholder="비밀번호를 다시 입력해주세요.">
     <p>이름</p>
-    <input type="text" name="user[name]" placeholder="이름을 입력하세요.">
+    <input type="text" name="name" placeholder="이름을 입력하세요.">
     <p>메일</p>
-    <input type="email" name="user[mail" placeholder="메일을 입력하세요.">
+    <input type="email" name="mail" placeholder="메일을 입력하세요.">
     <p>전화번호</p>
-    <input type="text" name="user[phone_number]" placeholder="핸드폰 번호를 입력하세요.">
+    <input type="text" name="phone_number" placeholder="핸드폰 번호를 입력하세요.">
     <p>학년</p>
-    <select name="user[grade_id]">
+    <select name="grade_id">
       <option value=1 SELETED>1학년</option>
       <option value=2>2학년</option>
       <option value=3>3학년</option>
       <option value=4>4학년</option>
     </select>
     <p>학과</p>
-    <select name="user[department_id]">
+    <select name="department_id">
       <option value=1 SELETED>IT융합 자율학부</option>
       <option value=2>컴퓨터공학</option>
       <option value=3>소프트웨어공학</option>
@@ -47,7 +47,8 @@
       <option value=16>기독교문화</option>
       
     </select>
-    <input type="submit" name="user[submit]" value="완료">
+    
+    <input type="submit" value="완료">
   </div>
 <% end %>
 

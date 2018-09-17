@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   get 'apply_content/create'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   # club_member를 전체를 보여주는 라우트
   get 'club/club_members'
   
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   
   # 지원서 작성
   get 'apply_content/new/:club_id' => 'apply_content#new'
-  post 'apply_content/create/:club_id/:user_id' => 'apply_content#create'
+  post 'apply_content/create/:apply_form_id/:user_id' => 'apply_content#create'
   
   #####################################
   
