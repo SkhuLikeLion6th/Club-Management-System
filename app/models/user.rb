@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :club_members
+  has_many :videos
   belongs_to :department
   belongs_to :grade
 end

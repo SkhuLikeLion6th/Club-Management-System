@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
+  resources :video, except: [:show]
+
+
   root 'front#index'
   
   get 'apply_content/create'
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users
+  #회원정보 수정하는 라우트
+  devise_scope :user do 
+    get '/users/:id/edit' , to: 'users#edit'
+    patch '/users/:id', to: 'users#update'
+  end
+  resources :users, only: [:new, :create, :edit, :update]
+  
+  # option apply_active를 변환하는 라우트
+  get 'club/option_change/:club_id' => 'club#option_change'
+  
   # club_member를 전체를 보여주는 라우트
   get 'club/club_members'
   
@@ -45,16 +58,22 @@ Rails.application.routes.draw do
   
   ## 지원내용 관련 routes ##
   # 지원내용 확인
-  get 'apply_content/index'
+  get 'apply_content/index' # 동아리 관리자는 자신의 동아리에 지원한 사람의 지원서 목록을 확인하고,
+                            # 지원자는 자신의 지원서를 확인하는 페이지
   
   # 지원서 작성
   get 'apply_content/new/:club_id' => 'apply_content#new'
   post 'apply_content/create/:apply_form_id/:user_id' => 'apply_content#create'
   
+  # 지원서 수정
+  get 'apply_content/edit/:apply_content_id' => 'apply_content#edit'
+  post 'apply_content/update/:apply_content_id' => 'apply_content#update'
   #####################################
   
   #프론트 작업
   get 'front/index'
+  
+  get 'front/try'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

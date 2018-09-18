@@ -21,9 +21,6 @@
 
 /*nav bar*/
 
-a{
-    text-decoration: none;
-}
 
 .header{
     display: block;
@@ -94,6 +91,7 @@ footer{
     width: 100%; 
     height: 250px; 
     background-color: #7F6B6E;
+    bottom: 0;
 }
 
 .footer-outline{
@@ -119,14 +117,14 @@ footer{
     width: 170px;
 }
 
-.footer-menu{
+.footer-name{
     margin-left: 2rem;
 }
 
-.menu-item{
+.name-item{
     font-family: 'WONDotum';
     font-size: 0.95rem;
-    padding-left: 2rem;
+    padding-left: 1.3rem;
     color: white;
 }
 
@@ -135,15 +133,20 @@ footer{
 }
 
 .social-img{
-    width: 35px;
-    height: 35px;
+    width: 70px;
+    height: 42px;
     margin-right: 0.7rem;
     border-radius: 20%;
 }
 
-.footer-description{
+.footer-bottom{
     font-family: 'WONDotum';
     font-size: 0.875rem;
     color: white;
-    margin-top: 2rem;
+    margin-top: 1.2rem;
+    margin-left: 14.0rem;
+}
+
+.footer-description{
+    padding: 0.1rem;
 }

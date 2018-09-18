@@ -1,18 +1,23 @@
-class RegistrationsController < Devise::RegistrationsController
+# class RegistrationsController < Devise::RegistrationsController
 
-  protected
+#   def new
+#     @user = User.new()
+#   end
+  
+#   def create
+#     super
+#   end
+  
+#   def edit
+#     @user = current_user
+#   end
 
-  def update_resource(resource, params)
-    resource.update_without_password(account_update_params)
-  end
+#   def destory
+#     super
+#   end
   
+#   def update
+#     super
+#   end
   
-  private
-
-
-  def account_update_params
-    params.require(:user).permit(:department_id, :name, :phone_number, :mail, :grade_id, :password, :password_confirmation, :email)
-  end
-  
-  
-end
+# end

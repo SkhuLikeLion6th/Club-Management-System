@@ -14,6 +14,8 @@
     <!--style-->
 	<link rel="stylesheet" href="assets/reset.css">
 	<link rel="stylesheet" href="assets/login_style.css">
+  <link rel="stylesheet" href="assets/signup.css">
+  
   
     <!--link-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -34,14 +36,14 @@
                 <!--<a class="menu-yellow" href="#">전체 회원 목록</a> 사이트 관리자만 볼 수 있음-->
                 <a class="menu-pink" href="/club/index">동아리 목록</a>
                 <a class="menu-yellow" href="#">현재 가입 가능 동아리</a>
-                <a class="menu-pink" href="#">내 정보</a>
+                <a class="menu-pink" href="#">????</a>
             </div>
             <a class="logo-link" href="/">
                 <img class="logo" src="/assets/logo.png" alt="logo-img" width="300px">
             </a>
             <div class="menu">
                 <a class="menu-yellow" href="#">회의록</a>
-                <a class="menu-pink" href="#">회의록</a>
+                <a class="menu-pink" href="#">???</a>
                 
 				      <% if current_user == nil %>
   				  		<a class="menu-yellow" href="/users/sign_in">로그인</a>
@@ -57,36 +59,41 @@
     </div>
   </div>
 
-<%= yield %>
+  <%= yield %>
 
-<footer>
-  <div class="footer-outline">
-    <div class="footer-content">
-      <div class="footer-top">
-        <img src="/assets/logo-footer.png" alt="logo-footer" class="logo-footer">
-        <div class="footer-menu">
-          <a href="#" class="menu-item">회사소개</a>
-          <a href="#" class="menu-item">공지사항</a>
-          <a href="#" class="menu-item">고객센터</a>
-          <a href="#" class="menu-item">이용약관/개인정보 취급방침</a>
+  <!--footer-->
+  <footer>
+    <div class="footer-outline">
+      <div class="footer-content">
+        <div class="footer-top">
+          <img src="/assets/logo-footer.png" alt="logo-footer" class="logo-footer">
+          <div class="footer-name">
+            <a href="#" class="name-item">만든이 :</a>
+            <a href="#" class="name-item">김승래</a>
+            <a href="#" class="name-item">함진경</a>
+            <a href="#" class="name-item">박결</a>
+            <a href="#" class="name-item">한현수</a>
+            <a href="#" class="name-item">홍다은</a>
+          </div>
+          <div class="social-buttons">
+            <!-- 동연 페이스북 연결 -->
+            <a href="#"><img src="/assets/facebook-l.png" alt="facebook" class="social-img"></a>
+            <a href="#"><img src="/assets/facebook-c.png" alt="facebook" class="social-img"></a>
+          </div>
         </div>
-        <div class="social-buttons">
-          <img src="/assets/facebook.png" alt="facebook" class="social-img">
-          <img src="/assets/twitter.png" alt="twitter" class="social-img">
-          <img src="/assets/instagram.png" alt="instagram" class="social-img">
+        
+        <div class="footer-bottom">
+          <p class="footer-description">Made By LIKELION : 멋쟁이 사자처럼</p>
+          <p class="footer-description">서울특별시 구로구 연동로 320</p>
+          <p class="footer-description">대표번호: 070-0000-0000</p>
+          <p class="footer-description">문의: aricheck@gmail.com</p>
         </div>
+        
       </div>
-      
-      <div class="footer-description">
-        <p>상호: 주식회사 아리체크</p>
-        <p>주소: 서울시 구로구 </p>
-        <p>대표번호: 070-0000-0000</p>
-        <p>고객문의: aricheck@gmail.com</p>
-      </div>
-      
     </div>
-  </div>
-</footer>
+  </footer>
 
+
+  
 </body>
 </html>

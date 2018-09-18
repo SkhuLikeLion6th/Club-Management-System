@@ -1,25 +1,36 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
-  def edit
-    @user = current_user
-  end
 
-  def update_password
-    @user = current_user
-    if @user.update(user_params)
-      
-      bypass_sign_in(@user)
-      redirect_to root_path
+ 
+
+  # def new
+  #   @user = User.new
+  # end
+
+  # def create
+  #   super
+  # end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to '/'
     else
-      render "edit"
+      render 'edit'
     end
+  end
+  
+  def edit
+  
+    @user = User.find_by_id(params[:id])
   end
 
   private
 
-  def user_params
-    # NOTE: Using `strong_parameters` gem
-    params.require(:user).permit(:password, :password_confirmation, :grade_id, :department_id, :phone_number)
-  end
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation,:department_id,:grade_id,:mail,:phone_number)
+    end
 end

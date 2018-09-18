@@ -1,0 +1,26 @@
+<% if current_user.id == @user.id %>
+    <%= form_for @user do |f| %>
+        <%= f.label '학번'%><br>
+        <%= f.text_field :email %><br>
+        <%= f.label '비밀번호'%><br>
+        <%= f.password_field :password %><br>
+        <%= f.label '비밀번호 확인'%><br>
+        <%= f.password_field :password_confirmation %><br>
+        <%= f.label '이름'%><br>
+        <%= f.text_field :name %><br>
+        <%= f.label '이메일'%><br>
+        <%= f.email_field :mail %><br>
+        <%= f.label '전화번호'%><br>
+        <%= f.text_field :phone_number %><br>
+        <%= f.label '학년' %><br>
+        <%= f.collection_select :grade_id, Grade.all, :id, :grade_name %><br>    
+        <%= f.label '학과' %><br>
+        <%= f.collection_select :department_id, Department.all, :id, :department_name, :prompt => '학과를 선택하세요' %><br>
+        <%= f.submit "완료" %>
+
+    
+        
+    <% end %>
+<% else %>
+    <p>올바른 접근이 아닙니다</p>
+<%end%>

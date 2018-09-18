@@ -8,26 +8,65 @@
         <!--자신이 속한 동아리 지원서만 보이도록 해야함-->
         <% if x.club_id == current_user_club_id %>
             동아리 이름: <%=Club.find(x.club_id).club_name%><br>
-                <% @apply_contents.each do |c| %>
-                <%if c.apply_form_id == current_user_club_id %>
-                    지원자: <%=c.user_id%><br>
-                    title1: <%=x.title1%><br>
-                    content1: <%= c.content1 %><br>
-                    title2: <%=x.title2%><br>
-                    content2: <%= c.content2 %><br>
-                    title3: <%=x.title3%><br>
-                    content3: <%= c.content3 %><br>
-                    <%unless x.title4 == nil%>
-                    title4: <%=x.title4%><br>
-                    content4: <%= c.content4 %><br>
+            <% @apply_contents.each do |c| %>
+                <% if c.apply_form_id == current_user_club_id %>
+                    지원자id: <%=c.user_id%><br>
+                    <% unless x.title1 == nil %>
+                        title1: <%=x.title1%><br>
+                        content1: <%= c.content1 %><br>
                     <% end %>
-                    <%unless x.title4 == nil%>
-                    title5: <%=x.title5%><br>
-                    content5: <%= c.content5 %><br>
+                    <% unless x.title2 == nil %>
+                        title2: <%=x.title2%><br>
+                        content2: <%= c.content2 %><br>
                     <% end %>
+                    <% unless x.title3 == nil %>
+                        title3: <%=x.title3%><br>
+                        content3: <%= c.content3 %><br>
                     <% end %>
-                <hr>
+                    <% unless x.title4 == nil %>
+                        title4: <%=x.title4%><br>
+                        content4: <%= c.content4 %><br>
+                    <% end %>
+                    <% unless x.title5 == nil %>
+                        title5: <%=x.title5%><br>
+                        content5: <%= c.content5 %><br>
+                    <% end %>
                 <% end %>
+                <!--지원자 동아리 멤버로 등록하기-->
+                <a href='/club/add_club_member/<%=x.club_id%>'>수락</a> <a href='#'>거절</a>
+                <hr>
+            <% end %>
+        <% end %>
+    <% end %>
+<!--일반인라면 자신이 지원한 내용 확인하기-->
+<% elsif current_user.authorization == '2' %>
+    <% @apply_contents.each do |c| %>
+        <% if c.user_id == current_user.id %>
+            <% @forms.each do |f| %>
+                <% if c.apply_form_id == f.id %>
+                    <% unless f.title1 == nil %>
+                        title1: <%=f.title1%><br>
+                        content1: <%= c.content1 %><br>
+                    <% end %>
+                    <% unless f.title2 == nil %>
+                        title2: <%=f.title2%><br>
+                        content2: <%= c.content2 %><br>
+                    <% end %>
+                    <% unless f.title3 == nil %>
+                        title3: <%=f.title3%><br>
+                        content3: <%= c.content3 %><br>
+                    <% end %>
+                    <% unless f.title4 == nil %>
+                        title4: <%=f.title4%><br>
+                        content4: <%= c.content4 %><br>
+                    <% end %>
+                    <% unless f.title5 == nil %>
+                        title5: <%=f.title5%><br>
+                        content5: <%= c.content5 %><br>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <a href="/apply_content/edit/<%=c.id%>">수정하기</a>
         <% end %>
     <% end %>
 <% end %>
