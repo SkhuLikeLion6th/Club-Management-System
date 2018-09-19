@@ -26,7 +26,7 @@
 * Notice & Ad (CRU View)
 * 각 단체 회원 명단 현황 (R View)
 * 각 단체 지원자 현황 (R View)
-* Options Table (U View)
+* Options Table (U View)                    *
 * 전체 회원 목록 (R View)
 * 단체 등록 (C View)
 
@@ -57,9 +57,9 @@
 *   * sign_up form 작업 예정 -> 끝
 *   * apply_content 작업 예정
 *   
-    반응형 보류 
-<!--*  * 다은이가 만들어둔 index에 반응형 웹 입히기.-->
-<!--*    1. nav 바 반응형 작업하기 ( 모바일 사이즈에서는 nav바를 슬라이드로 표현)-->
+    반응형 <보류> 
+<!--*  index에 반응형 웹 입히기.-->
+<!--*    1. nav 반응형 작업하기 ( 모바일 사이즈에서는 nav바를 슬라이드로 표현)-->
 *       
 *    
 

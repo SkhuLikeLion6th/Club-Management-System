@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   # club_member를 삭제하는 라우트
   get 'club/delete_club_member/:club_member_id' => 'club#delete_club_member'
   
+  # club_member를 추가하는 라우트
+  get 'club/add_club_member/:club_id/:user_id' => 'club#add_club_member'
+  
   # club을 수정하는 라우트
   get 'club/edit_club/:club_id' => 'club#edit_club'
   

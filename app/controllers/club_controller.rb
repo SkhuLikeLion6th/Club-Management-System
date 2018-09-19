@@ -63,8 +63,9 @@ class ClubController < ApplicationController
   
   def add_club_member # 클럽 멤버를 추가하는 함수
     if user_signed_in? && current_user.authorization == '1'
-      @member = ClubMember.find(params[:club_id)
-      @member.user_id = current_user.id
+      @member = ClubMember.new
+      @member.user_id = params[:user_id]
+      @member.club_id = params[:club_id]
       @member.save
     end
     redirect_to '/club/club_members'
@@ -101,7 +102,7 @@ class ClubController < ApplicationController
     if user_signed_in? && current_user.authorization == '0'
       @members = ClubMember.all
     else
-      redirect_to '/club_index'
+      redirect_to '/club/index'
     end
   end
   

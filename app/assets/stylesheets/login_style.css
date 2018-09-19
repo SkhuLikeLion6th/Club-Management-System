@@ -12,18 +12,19 @@
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
 	padding: 70px 30px;
+	border-radius: 3%;
 
 }
 
 .login_person{
-	width: 200px;
-	height: 200px;
+	width: 150px;
+	height: 150px;
 	background-color: #fff;
 	border-radius: 50%;
 	position: absolute;
-	top: -100px;
-	left: calc(50% - 100px);
-	border: 1px solid #FFD0D6;
+	top: -75px;
+	left: calc(50% - 75px);
+	/*border: 1px solid #FFD0D6;*/
 
 }
 
