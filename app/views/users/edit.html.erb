@@ -1,26 +1,35 @@
 <% if current_user.id == @user.id %>
     <%= form_for @user do |f| %>
-        <%= f.label '학번'%><br>
-        <%= f.text_field :email %><br>
-        <%= f.label '비밀번호'%><br>
-        <%= f.password_field :password %><br>
-        <%= f.label '비밀번호 확인'%><br>
-        <%= f.password_field :password_confirmation %><br>
-        <%= f.label '이름'%><br>
-        <%= f.text_field :name %><br>
-        <%= f.label '이메일'%><br>
-        <%= f.email_field :mail %><br>
-        <%= f.label '전화번호'%><br>
-        <%= f.text_field :phone_number %><br>
-        <%= f.label '학년' %><br>
-        <%= f.collection_select :grade_id, Grade.all, :id, :grade_name %><br>    
-        <%= f.label '학과' %><br>
-        <%= f.collection_select :department_id, Department.all, :id, :department_name, :prompt => '학과를 선택하세요' %><br>
-        <%= f.submit "완료" %>
-
-    
-        
-    <% end %>
-<% else %>
-    <p>올바른 접근이 아닙니다</p>
+          <div class="signup_body">
+           	<div class="signupbox">
+          		<h1>회원정보수정</h1> 
+          		<p>학번</p>
+          	    <p><%= @user.email %><br></p>
+          	    <p>비밀번호</p>
+          	    <%= f.password_field :password %><br>
+          	    <p>비밀번호 확인</p>
+          	    <%= f.password_field :password_confirmation %><br>
+          	    <p>이름</p>
+          	    <%= f.text_field :name %><br>
+          	    <p>메일</p>
+          	    <%= f.email_field :mail %><br>
+          	    <p>전화번호</p>
+          	    <%= f.text_field :phone_number %>
+          
+          	    <div class="selc">
+          		    <p>학년</p>
+          		    <%= f.collection_select( :grade_id, Grade.all, :id, :grade_name,{}, {:class => "selc_1"}) %>
+         
+          		    <p class="p_1">학과</p>
+          		    <%= f.collection_select :department_id, Department.all, :id, :department_name,{}, {class: "selc_2"} %>
+      
+          		   	<input type="submit" name="user[submit]" value="완료">
+            		</div>
+            	</div>
+          	</div>
+    <%end%>
 <%end%>
+
+
+
+

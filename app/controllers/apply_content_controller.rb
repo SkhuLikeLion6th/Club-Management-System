@@ -1,6 +1,6 @@
 class ApplyContentController < ApplicationController
   def index
-    @forms = ApplyForm.all
+    @forms = ApplyForm.all.reverse
     @apply_contents= ApplyContent.all
   end
   def new

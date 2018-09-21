@@ -2,12 +2,16 @@
 .content-outline{
     margin-top: 40px;
     margin-bottom: 50px;
+    /*height: 800px;*/
+    min-height: 500px;
+    
 }
 
 .content{
     width: 1000px;
     margin: auto;
     font-family: 'WONDotum';
+    color: #434343;
 }
 
 .content-main{
@@ -27,38 +31,8 @@
     margin-bottom: 40px;
 }
 
-/* club-index */
-.club-index-inner{
-    width: 25%;
-    display: inline-block;
-    padding-right: 7px;
-    padding-left: 7px;
-}
-
-.club-index-name{
-    padding: 5px;
-    font-size: 20px;
-}
-
-.club-index-intro{
-    margin-top: -11px;
-     padding-bottom: 5px;
-     padding-left: 5px;
-     padding-right: 5px;
-     font-size: 14px;
-     color: #434343;
-}
-
-.svg-line{
-    padding-left: 5px;
-}
-
-.club-view{
-    text-align: center;
-}
-
-.club-intro-detail{
-    font-size: 14px;
-    color: #434343;
+.if-none-contents{
+    padding-top: 8rem;
+    font-size: 1.5rem;
     text-align: center;
 }

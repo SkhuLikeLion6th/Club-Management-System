@@ -61,6 +61,8 @@
     text-align: center;
 }
 
+/*menu shape*/
+
 .menu-pink{
     font-family: 'WONDotum';
     font-weight: lighter;
@@ -71,6 +73,8 @@
     padding: 0.6rem;
     color: white;
     background-color: #FFD0D6;
+    /**/
+    cursor: wait;
 }
 
 .menu-yellow{
@@ -84,6 +88,11 @@
     background-color: #FEE19F;
 }
 
+/*video menu*/
+
+.video_new, .video_index{
+    cursor: help;
+}
 /*footer*/
 
 footer{
@@ -126,6 +135,7 @@ footer{
     font-size: 0.95rem;
     padding-left: 1.3rem;
     color: white;
+    display: inline-block;
 }
 
 .social-buttons{

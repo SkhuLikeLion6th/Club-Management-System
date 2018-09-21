@@ -1,5 +1,5 @@
 <div class="content-outline">
-    <div class="content">
+    <div class="content-club-view">
         <form action = "/club/club_view/<%= @club.id %>" method="get">
             <!--단체의 이미지, 이름, 소개-->
             <% unless @club.img_url.nil? %> 
@@ -11,65 +11,77 @@
                 <div class="club-intro-detail"><p><%= @club.introduce %></p></div>
             </div>
             
+            <div class="member-view">
             <!--단체의 회원 목록-->
-            <% if user_signed_in? %> <!--로그인을 확인하는 if문 -->
-                <% @members.each do |x| %>
-                    <% if x.club.id == @club.id %> <!-- 현재 보고있는 클럽아이디와 각각의 멤버의 클럽아이디가 같은 것만 보여준다.-->
-                        <!--로그인 한 유저가 일반 회원이면 p태그로 회원 이름들을 보여줌.-->
-                        <% if current_user.authorization == '2'%>
-                            <p><%= x.user.name %></p>
-                        <!--로그인 한 유저가 사이트 관리자나 현재 보고있는 단체의 관리자 이면 a태그로 회원 이름들을 보여줌.-->
-                        <% elsif current_user.authorization == '0' or (@current_check_club.club_id == @club.id && current_user.authorization == '1')%>
-                            <a href="#"><%= x.user.name %></a><br>
+                <div class="subheading">회원 목록</div>
+                <svg class="svg-line-club-view" height="25" width="150">
+                    <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
+                </svg>
+                <div class="sub-content memeber-info">
+                    <div class="row">
+                        <% @members.each do |x| %>
+                            <% if x.club.id == @club.id %> <!-- 현재 보고있는 클럽아이디와 각각의 멤버의 클럽아이디가 같은 것만 보여준다.-->
+                                <div class="col-2">
+                                    <img src="/assets/person.png" alt="person" width="80px">
+                                    <div class="user-name-in-club-view"><%= x.user.name %></div>
+                                </div>
+                            <% end %>
                         <% end %>
-                    <% end %>
-                <% end %>
-            <% end %>
+                    </div>
+                </div>
+            </div>
             
-            <!--지원하기-->
-            <p><%= @current_check_option.apply_active %></p>
-            <!--현재 옵션 테이블의 apply_active가 "1"이면 지원할 수 있음-->
-            <% if @current_check_option.apply_active == '1' %>
-                <!--로그인 된 상태면 현재 로그인 한 권한에 따라 보이는게 다름-->
-                <% if user_signed_in? %>
-                    <!--서버 관리자인 경우-->
-                    <% if current_user.authorization == '0' %>
-                        <p>서버 관리자는 지원이 불가능합니다.</p>
-                    <!--단체 관리자인 경우-->
-                    <% elsif current_user.authorization == '1' %>
-                        <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자인 경우-->
-                        <% if @current_check_club.club_id == @club.id %>
-                            <a href="/club/option_change/<%= @club.id %>">지원 시작</a>
-                        <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자가 아닌경우-->
+            <div class="button-in-club-view">
+                <% if ApplyContent.find_by_user_id(current_user.id) != nil %>
+                <a href="/apply_content/index"><div class="button-in-club-view-pink">지원내용 확인하기</div></a>
+                <% end %>
+                <a href="/club/index"><div class="button-in-club-view-yellow">되돌아가기</div></a>
+                <!--현재 옵션 테이블의 apply_active가 "1"이면 지원할 수 있음-->
+                <% if @current_check_option.apply_active == '1' %>
+                    <!--로그인 된 상태면 현재 로그인 한 권한에 따라 보이는게 다름-->
+                    <% if user_signed_in? %>
+                        <!--서버 관리자인 경우-->
+                        <% if current_user.authorization == '0' %>
+                            <a href="/club/option_change/<%= @club.id %>"><div class="button-in-club-view-pink">지원 마감</div></a>
+                        <!--단체 관리자인 경우-->
+                        <% elsif current_user.authorization == '1' %>
+                            <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자인 경우-->
+                            <% if @current_check_club != nil && @current_check_club.club_id == @club.id %>
+                                <a href="/club/option_change/<%= @club.id %>"><div class="button-in-club-view-pink">지원 마감</div></a>
+                            <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자가 아닌경우-->
+                            <% else %>
+                                <a href="#"><div class="button-in-club-view-pink">권한없음</div></a>
+                            <% end %>
+                        <!--일반 회원인 경우-->
                         <% else %>
-                            <p>다른 단체 관리자는 지원이 불가능합니다.</p>
+                            <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있는 경우, 지원 양식이 없는 경우-->
+                            <% if @current_check_club != nil && @current_check_club.club_id == @club.id || ApplyForm.find_by_club_id(@club.id) == nil %>
+                                <a href="#"><div class="button-in-club-view-pink">지원 불가</div></a>
+                            <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있지 않은 경우-->
+                            <% else %>
+                                <a href="/apply_content/new/<%=@club.id%>"><div class="button-in-club-view-pink">지원하기</div></a>
+                            <% end %>
                         <% end %>
-                    <!--일반 회원인 경우-->
                     <% else %>
-                        <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있는 경우-->
-                        <% if @current_check_club != nil && @current_check_club.club_id == @club.id %>
-                            <p>이미 단체에 속해 있습니다.</p>
-                        <!--현재 로그인 한 일반 회원이 클럽에 소속 되어있지 않은 경우-->
-                        <% else %>
-                            <a href="/apply_content/new/<%=@club.id%>">지원하기</a>
-                        <% end %>
+                        <!--로그인이 안되어 있으면 지원하기 버튼을 누르면 로그인 창으로 감.-->
+                        <a href="/users/sign_in"><div class="button-in-club-view-yellow">지원하기</div></a>
                     <% end %>
+                <!--현재 옵션 테이블의 apply_active가 "0"이면 지원할 수 없음-->
                 <% else %>
-                    <!--로그인이 안되어 있으면 지원하기 버튼을 누르면 로그인 창으로 감.-->
-                    <a href="/users/sign_in">지원하기</a><br>
+                    <!--현재 로그인한 아이디가 보고있는 클럽에 속해있고 단체 관리자이면 지원을 마감할 수 있음.-->
+                    <% if user_signed_in? && current_user.authorization == '0' %>
+                        <a href="/club/option_change/<%= @club.id %>"><div class="button-in-club-view-pink">지원 시작</div>
+                    <% elsif user_signed_in? && current_user.authorization == "1" %>
+                        <% if @current_check_club != nil && @current_check_club.club_id == @club.id %>
+                            <a href="/club/option_change/<%= @club.id %>"><div class="button-in-club-view-pink">지원 시작</div>
+                        <% else %>
+                            <a href="#"><div class="button-in-club-view-pink">권한없음</div></a>
+                        <% end %>
+                    <% else %>
+                        <a href="#"><div class="button-in-club-view-pink">지원 불가</div></a>
+                    <% end %>
                 <% end %>
-            <!--현재 옵션 테이블의 apply_active가 "0"이면 지원할 수 없음-->
-            <% else %>
-                <!--현재 로그인한 아이디가 보고있는 클럽에 속해있고 단체 관리자이면 지원을 마감할 수 있음.-->
-                <% if user_signed_in? && (@current_check_club != nil && @current_check_club.club_id == @club.id) && current_user.authorization == '1' %>
-                    <a href="/club/option_change/<%= @club.id %>">지원 마감</a><br>
-                <% else %>
-                    <p>지원 기간이 아닙니다.</p>
-                <% end %>
-            <% end %>
-            <a href="/apply_content/index">지원내용 확인하기</a><br>
-            <a href="/club/index">되돌아가기</a><br>
-            <a href="/apply_content/new/<%=@club.id%>">지원하기</a>
+            </div>
         </form>
     </div>
 </div>

@@ -1,10 +1,11 @@
 .login_body{
     height: 700px;
+    font-family: 'WONDotum';
 }
 .loginbox{
 	width: 480px;
 	height: 530px;
-	background: #FFD0D6;
+	background: #ffeaed;
 	color: #fff;
 	top: 600px;
 	left: 50%;
@@ -33,15 +34,16 @@
     padding-bottom: 30px;
 	text-align: center;
 	font-size: 22px;
-	color: #000;
+	color: #555;
 	font-weight: bold;
+	margin-bottom: 20px;
 }
 
 .loginbox p{
 	margin: 0px;
 	padding: 0px;
 	font-weight: bold;
-	color: #000;
+	color: #555;
 }
 
 .loginbox input{
@@ -60,9 +62,8 @@
 	background: transparent;
 	outline: none;
 	height: 40px;
-	color: #fff;
+	color: #222;
 	font-size: 16px;
-
 }
 
 .loginbox input[type="submit"]

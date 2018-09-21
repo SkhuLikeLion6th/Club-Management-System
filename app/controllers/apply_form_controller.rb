@@ -8,7 +8,7 @@ class ApplyFormController < ApplicationController
 
   def create
     # 로그인이 되어있고 동아리 관리자일 때만 지원양식 생성가능
-    if user_signed_in? && current_user.authorization=='1'
+    if user_signed_in? && current_user.authorization=='1' && current_user.authorization == '0'
       @form = ApplyForm.new
       user = ClubMember.find(params[:user_id])
       @form.club_id = user.club_id
@@ -28,7 +28,7 @@ class ApplyFormController < ApplicationController
   
   def update
     # 로그인이 되어있고 동아리 관리자일 때만 지원양식 수정가능
-    if user_signed_in? && current_user.authorization=='1'
+    if user_signed_in? && current_user.authorization=='1' && current_user.authorization == '0'
       @form = ApplyForm.find(params[:club_id])
       @form.club_id = params[:club_id]
       @form.title1 = params[:title1]

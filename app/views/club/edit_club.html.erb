@@ -1,8 +1,29 @@
-<h1>클럽 수정하기</h1>
-<form action="/club/create_club/" method="post" enctype="multipart/form-data">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    이미지 : <input type="file" name="img" accept="image/*"><br>
-    단체 이름 : <input type="text" name="club_name"><br>
-    소개 : <input type="text" name="introduce"><br>
-    <input type="submit" value="제출">
-</form>
+<div class="content-outline">
+    <div class="content">
+        <div class="content-title">클럽 수정하기</div>
+        
+        <div class="apply-content-outline">
+            <svg class="svg-line-apply-index-pink" height="100" width="100">
+                <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
+                <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
+            </svg>
+            <div class="apply-content">
+                <form action="/club/update_club/<%= @club.id %>" method="post" enctype="multipart/form-data">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    이미지 : <input type="file" name="img" accept="image/*"><br>
+                    단체 이름 : <input type="text" name="club_name"><br>
+                    소개 : <input type="text" name="introduce"><br>
+                    <input type="submit" value="제출">
+                </form>
+            
+            <div class="structure-end">
+                <svg class="svg-line-apply-index-yellow" height="100" width="100">
+                    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
+                    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    </div>

@@ -1,8 +1,54 @@
-<h1>전체 회원 목록</h1>
-<!--전체 클럽 멤버를 보여주는 페이지. 프론트가 짜지면 표형식으로 이름, 전화번호 등으로 짤 것임-->
-<% @members.each do |x| %>
-    <a><%= x.user.name %></a>
-    <a><%= x.club.club_name %></a>
-    <a href = "/club/delete_club_member/<%= x.id %>">삭제</a><br>
-    <br>
+<% if current_user.authorization == '0' %>
+    <h1>전체 회원 목록</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">전화번호</th>
+          <th scope="col">메일</th>
+          <th scope="col">학번</th>
+          <th scope="col">학과</th>
+          <th scope="col">학년</th>
+          <th scope="col">소속 단체</th>
+        </tr>
+      </thead>
+    
+    <% @members.each do |x| %>
+        <a><%= x.user.name %></a>
+        <a><%= x.club.club_name %></a>
+        <a href = "/club/delete_club_member/<%= x.id %>">삭제</a><br>
+        <hr>
+    <% end %>
+    </table>
+<% elsif current_user.authorization == '1' %>
+    <h1><%= ClubMember.find_by_user_id(current_user.id).club.club_name %> 회원 목록</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">전화번호</th>
+          <th scope="col">메일</th>
+          <th scope="col">학번</th>
+          <th scope="col">학과</th>
+          <th scope="col">학년</th>
+          <th scope="col">소속 단체</th>
+        </tr>
+      </thead>
+    <% @members.each do |x| %>
+        <% if @club_check.club_id == x.club_id %>
+            <tbody>
+                <tr>
+                  <td><%= x.user.name %></td>
+                  <td><%= x.user.phone_number %></td>
+                  <td><%= x.user.mail %></td>
+                  <td><%= x.user.email %></td>
+                  <td><%= x.user.department.department_name %></td>
+                  <td><%= x.user.grade_id %> 학년</td>
+                  <td><a href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                </tr>
+            </tbody>
+        <% end %>
+    <% end %>
+    </table>
+    <a href="/apply_content/index"><div class="button-in-club-view-pink">지원내용 확인하기</div></a>
 <% end %>

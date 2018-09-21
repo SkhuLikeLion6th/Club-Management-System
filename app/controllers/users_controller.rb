@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
-
- 
+  # 마이페이지
+  def index
+    @users= User.all
+    unless ClubMember.find_by_user_id(current_user.id) == nil
+      @club_id = ClubMember.find_by_user_id(current_user.id).club_id
+    end
+  end
 
   # def new
   #   @user = User.new
@@ -30,7 +35,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:name, :password,
                                    :password_confirmation,:department_id,:grade_id,:mail,:phone_number)
     end
 end

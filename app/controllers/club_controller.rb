@@ -1,12 +1,14 @@
 class ClubController < ApplicationController
   def index
     @clubs = Club.all
+    # @clubs = Club.page(params[:page])
+    if user_signed_in?
+      @current_check_club = ClubMember.find_by_user_id(current_user.id)
+    end
   end
   
   def new_club
-    if user_signed_in? && current_user.authorization == '0'
-      redirect_to '/club/new_club'
-    else
+    if user_signed_in? && (current_user.authorization == '1' || current_user.authorization == '2')
       redirect_to '/club/index'
     end
   end
@@ -52,13 +54,31 @@ class ClubController < ApplicationController
   end
   
   def edit_club # 클럽을 불러오는 함수
-    if user_signed_in? && (current_user.authorization == '0' || current_user.authorization == '1') # 로그인이 되어있고 로그인 권한이 0, 1이면 클럽을 수정할수 있다.
+    if user_signed_in?
       @club = Club.find(params[:club_id])
-      if @club.user.id != ClubMember.find_by_user_id
+      # 현재 로그인된 아이디의 클럽을 불러오는 것.
+      @check_club = ClubMember.find_by_user_id(current_user.id)
+      if current_user.authorization == "2"
+        redirect_to '/club/index'
+      # 현재 로그인된 아이디가 단체 관리자이고 지금 보고있는 단체에 속해있지 않으면 수정할수 x
+      elsif current_user.authorization == "1" && @check_club.club_id != @club.id
+        redirect_to '/club/index'
       end
-    else
-      redirect_to '/club/index'
     end
+  end
+  
+  def update_club # 클럽의 내용을 수정하는 함수
+    @club = Club.find(params[:club_id])
+    @club.id = params[:club_id]
+    @club.club_name = params[:club_name]
+    @club.introduce = params[:introduce]
+    uploader = ImguploaderUploader.new
+    uploader.store!(params[:img])
+    @club.img_url = uploader.url
+      
+    @club.save
+    
+    redirect_to '/club/index'
   end
   
   def add_club_member # 클럽 멤버를 추가하는 함수
@@ -68,14 +88,15 @@ class ClubController < ApplicationController
       @member.club_id = params[:club_id]
       @member.save
     end
-    redirect_to '/club/club_members'
+    redirect_to '/club/index'
   end
   
   def delete_club_member # 클럽 멤버를 지우는 함수
     if user_signed_in?
       @member = ClubMember.find(params[:club_member_id])
       # 현재 로그인 한 유저가 서버관리자 이거나 지우는 유저의 클럽아이디가 로그인하고 있는 클럽아이디가 같고 단체 관리자이면 멤버를 삭제할수있다.
-      if current_user.authorization == '0' || (ClubMember.find_by_club_id(@member) == ClubMember.find_by_club_id(current_user.id) && current_user.authorization == '1')
+      if current_user.authorization == '0' || current_user.authorization == '1'
+        # if ClubMember.find_by(:user_id => current_user.id, :use)
         @member.destroy
         
         redirect_to '/club/club_members'
@@ -99,8 +120,9 @@ class ClubController < ApplicationController
   end
   
   def club_members
-    if user_signed_in? && current_user.authorization == '0'
+    if user_signed_in? && current_user.authorization == '0' || current_user.authorization == '1'
       @members = ClubMember.all
+      @club_check = ClubMember.find_by_user_id(current_user.id)
     else
       redirect_to '/club/index'
     end
@@ -110,15 +132,56 @@ class ClubController < ApplicationController
   def option_change
     @option = Option.find_by_club_id(params[:club_id])
     
-    # apply_active가 "0"이면 "1"로 바꾼다.
-    if @option.apply_active == "0"
-      @option.apply_active = "1"
-    # 반대
-    else
-      @option.apply_active = "0"
+    if user_signed_in?
+      if current_user.authorization == "0"
+        # apply_active가 "0"이면 "1"로 바꾼다.
+        if @option.apply_active == "0"
+          @option.apply_active = "1"
+        # 반대
+        else
+          @option.apply_active = "0"
+        end
+        
+        @option.save
+        redirect_to '/club/index/'
+      elsif current_user.authorization == "1"
+        # 현재 로그인 한 유저가 보고있는 클럽에 속해있는지 확인하는 함수
+        @check_in_club = ClubMember.find_by_user_id(current_user.id)
+        # 만약 로그인 한 유저의 클럽이 보고있는 클럽과 다를경우
+        if @check_in_club.club_id != params[:club_id]
+          redirect_to '/club/index/'
+        else
+          # apply_active가 "0"이면 "1"로 바꾼다.
+          if @option.apply_active == "0"
+            @option.apply_active = "1"
+          # 반대
+          else
+            @option.apply_active = "0"
+          end
+          
+          @option.save
+          redirect_to '/club/index/'
+        end
+      else
+        redirect_to '/club/index/'
+      end
     end
-    
-    @option.save
-    redirect_to '/club/index/'
+  end
+  
+  # 내 동아리 보기
+  def my_club
+    if user_signed_in?
+      @clubs = ClubMember.all
+      @club_check = ClubMember.find_by_user_id(current_user.id)
+    else
+      redirect_to '/'
+    end
+  end
+  
+  # 지원할 수 있는 단체 보기
+  def appliable_club
+    @clubs = Option.all
+    # 옵션테이블에 활성화된 테이블을 찾는 함수
+    @club_check = Option.find_by_apply_active('1')
   end
 end

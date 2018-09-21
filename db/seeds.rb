@@ -30,6 +30,10 @@ Grade.create(grade_name: '4학년')
 Club.create(club_name: '멋쟁이사자처럼')
 Club.create(club_name: '개발자들')
 
+# 단체 옵션
+Option.create(club_id: 1, apply_active: 0) # 멋쟁이 사자처럼 옵션
+Option.create(club_id: 2, apply_active: 0) # 개발자들 옵션
+
 # 사이트 관리자
 User.create(email: 'admin', password: '123456',
             department_id: 1, name: '사이트 관리자', phone_number: '000-0000-0000',
@@ -63,8 +67,8 @@ User.create(email: 'devdogs_user2', password: '123456',
 
 # 어떤 단체에도 소속되어있지 않은 회원
 User.create(email: '201635034', password: '123456',
-            department_id: 3, name: '일반인', phone_number: '000-0000-0000',
-            mail: 'guest@user', grade_id: '0', authorization: 2)
+            department_id: 2, name: '함진경', phone_number: '000-0000-0000',
+            mail: 'guest@user', grade_id: '3', authorization: 2)
 
 # 멋쟁이 사자처럼 단체 소속
 ClubMember.create(club_id: 1, user_id: 2)
@@ -82,7 +86,3 @@ ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자�
 
 #지원 내용
 ApplyContent.create(apply_form_id: 1, user_id: 8, content1: "안녕하세요!", content2: "멋쟁이", content3: "사자가", content4: "되고", content5: "싶습니다.")
-
-
-
-

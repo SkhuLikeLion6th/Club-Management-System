@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :video, except: [:show]
-
+  # 유튜브 동영상 링크 업로드 하는 곳
+  post '/video/new' => 'video#create'
+  # 유튜브 동영상 보는곳
+  get '/video/index' => 'video#index' # 내용물 확인을 위해 '결' 씀
 
   root 'front#index'
   
@@ -13,6 +16,12 @@ Rails.application.routes.draw do
     patch '/users/:id', to: 'users#update'
   end
   resources :users, only: [:new, :create, :edit, :update]
+  
+  # 지원할 수 있는 단체를 보는 라우트
+  get 'club/appliable_club'
+  
+  # 내 단체를 보는 라우트
+  get 'club/my_club'
   
   # option apply_active를 변환하는 라우트
   get 'club/option_change/:club_id' => 'club#option_change'
@@ -71,6 +80,9 @@ Rails.application.routes.draw do
   # 지원서 수정
   get 'apply_content/edit/:apply_content_id' => 'apply_content#edit'
   post 'apply_content/update/:apply_content_id' => 'apply_content#update'
+  
+  # 마이페이지
+  get 'users/index' 
   #####################################
   
   #프론트 작업

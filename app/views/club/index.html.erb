@@ -7,22 +7,30 @@
             <p>유저 권한: <%= current_user.authorization %></p>
         <% end %>
         
-        <div class="club-index">
+        <div class="row">
             <% @clubs.each do |x| %>
-            <div class="club-index-inner">
-                <img src="/assets/rectangular.png" alt="square" width="100%">
-                <div class="club-index-name"><a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a></div>
-                <svg class="svg-line" height="25" width="150">
-                    <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
-                <div class="club-index-intro"><p><%= x.introduce %>Hack your life! <br>내가 만들고 싶은 페이지를 내 손으로</p></div>
-            </div>   
-                <% if user_signed_in? && current_user.authorization == '0' %>
-                    <a href="/club/delete_club/<%= x.id %>">삭제</a>
-                <% end %>
+                <div class=" col-3 club-index-inner club-card">
+                    <img src="/assets/rectangular.png" alt="square" width="100%">
+                    <div class="club-index-top">
+                        <div class="club-index-name"><a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a></div>
+                        <% if user_signed_in? %>
+                            <!--현재 로그인한 유저가 서버관리자면 수정, 삭제를 할 수 있다.-->
+                            <% if current_user.authorization == '0' %>
+                                    <a href="/club/edit_club/<%= x.id %>"><div class="button-club-index">수정</div></a>
+                                    <a href="/club/delete_club/<%= x.id %>"><div class="button-club-index">삭제</div></a>
+                            <!--현재 로그인한 유저가 단체 관리자이고 그 단체에 속하면 수정, 삭제 할 수 있다.-->
+                            <% elsif current_user.authorization == '1' && @current_check_club.club_id == x.id %>
+                                <a href="/club/edit_club/<%= x.id %>"><div class="button-club-index">수정</div></a>
+                                <a href="/club/delete_club/<%= x.id %>"><div class="button-club-index">삭제</div></a>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <svg class="svg-line" height="25" width="150">
+                        <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
+                    </svg>
+                    <div class="club-index-intro"><p><%= x.introduce %>Hack your life! <br>내가 만들고 싶은 페이지를 내 손으로</p></div>
+                </div>   
             <% end %>
         </div>
-        
-        <!--<a href="/club/new_club">그룹 만들기</a>-->
     </div>
 </div>

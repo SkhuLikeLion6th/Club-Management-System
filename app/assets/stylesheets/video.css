@@ -1,0 +1,45 @@
+.content-video{
+    width: 1200px;
+    margin: auto;
+    font-family: 'WONDotum';
+    color: #434343;
+}
+
+.video-link-area{
+    width: 400px;
+}
+
+.button-in-video{
+    margin: auto;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.button-in-video-new{
+    font-size: 18px;
+    margin: 0.3rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FFD0D6;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+    border-color: white;
+}
+
+iframe{
+    width: 100% !important;
+    height: 240px;
+}
+
+.video-name{
+    font-size: 20px;
+    font-family: 'WONDotum';
+}
+
+.video-uploader{
+    margin-top: -1rem;
+    font-family: 'WONDotum';
+}
