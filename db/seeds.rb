@@ -79,6 +79,8 @@ ClubMember.create(club_id: 1, user_id: 5)
 ClubMember.create(club_id: 2, user_id: 3)
 ClubMember.create(club_id: 2, user_id: 6)
 ClubMember.create(club_id: 2, user_id: 7)
+ClubMember.create(club_id: 2, user_id: 4) 
+
 
 #지원 양식
 ApplyForm.create(club_id: 1, title1: '멋사 질문1', title2: '멋사 질문2', title3: '멋사 질문3', title4: '멋사 질문4', title5: '멋사 질문5')

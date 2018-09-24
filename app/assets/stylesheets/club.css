@@ -1,11 +1,19 @@
 /* club-index */
-.club-index-inner{
-    display: inline-block;
-    padding-right: 7px;
-    padding-left: 7px;
+.club-card-align{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
 .club-card{
+    max-width: 25%;
+    min-width: 25%;
+    position: relative;
+    padding-right: 7px;
+    padding-left: 7px;
+    display: inline-block;
     margin-bottom: 20px;
 }
 
@@ -17,21 +25,11 @@
 
 .club-index-intro{
     margin-top: -11px;
-     padding-bottom: 5px;
-     padding-left: 5px;
-     padding-right: 5px;
-     font-size: 14px;
-     color: #434343;
-}
-
-.button-club-index{
-    display: inline-block;
-    color: #929292 !important;
-    border-color: #929292;
-    border-width: 2px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     font-size: 14px;
-    padding-right: 2px;
-    padding-left: 2px;
+    color: #434343;
 }
 
 .svg-line{
@@ -79,6 +77,16 @@
     text-align: center;
 }
 
+.button-club-index{
+    display: inline-block;
+    color: #929292 !important;
+    border-color: #929292;
+    border-width: 2px;
+    font-size: 14px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
 .button-in-club-view{
     margin: auto;
     margin-top: 4rem;
@@ -111,25 +119,72 @@
     display: inline-block;
 }
 
-/*my clubs 내 동아리*/
-p.no-club{
- font-size: 30px;
- color: #000;
- text-align: center;
+/* club_edit page*/
+
+.button-in-club-edit{
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
-div.my-clubs{
-    /*margin: 0 auto;*/
-    /*text-align: center;*/
-    
+.button-club-edit-submit{
+    margin: 0.3rem;
+    font-size: 18px;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FEE19F;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    border-color: white;
 }
 
-.my-club-align{
-    max-width: 25%;
-}
-
-.index-inner-my-club{
+.edit-content-outline{
+    width: 700px;
+    margin: auto;
+    padding: 15px;
     position: relative;
-    padding-right: 7px;
-    padding-left: 7px;
+}
+
+.edit-content{
+    padding-top: 50px;
+    padding-left: 60px;
+    padding-bottom: 50px;
+    padding-right: 60px;
+    margin: auto;
+}
+
+.club-edit-title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.club-edit-content{
+    margin-bottom: 20px;
+}
+
+/* club-members */
+
+.button-in-club-members{
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.button-apply-content-confirm{
+    margin: 0.3rem;
+    font-size: 18px;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FEE19F;
+    color: white;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.manager-authority{
+    margin-bottom: 20px;
 }

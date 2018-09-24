@@ -7,11 +7,11 @@
             <p>유저 권한: <%= current_user.authorization %></p>
         <% end %>
         
-        <div class="row">
+        <div class="club-card-align">
             <% @clubs.each do |x| %>
-                <div class=" col-3 club-index-inner club-card">
-                    <img src="/assets/rectangular.png" alt="square" width="100%">
+                <div class=" club-card">
                     <div class="club-index-top">
+                        <img src="/assets/rectangular.png" alt="square" width="100%">
                         <div class="club-index-name"><a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a></div>
                         <% if user_signed_in? %>
                             <!--현재 로그인한 유저가 서버관리자면 수정, 삭제를 할 수 있다.-->
@@ -29,8 +29,9 @@
                         <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
                     </svg>
                     <div class="club-index-intro"><p><%= x.introduce %>Hack your life! <br>내가 만들고 싶은 페이지를 내 손으로</p></div>
-                </div>   
+                </div>  
             <% end %>
         </div>
+        
     </div>
 </div>

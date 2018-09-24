@@ -1,7 +1,6 @@
 <div class="mypage_body">
     <div class="mypagebox">
     <h1> My Page </h1>
-    
         <% @users.each do |u| %>
             <% if u.id == current_user.id %>
                 <!--프로필이미지?<br>-->
@@ -15,17 +14,36 @@
                 <p>학번 : <%= u.email %></p>
                 <p>전화번호 : <%= u.phone_number %></p>
                 <p>메일 : <%= u.mail %></p>
-                <p><a href = '/users/<%=u.id%>/edit'>수정하기</a></p>
+          
+                
+                <% if @club_id == nil %>
+                    <p>소속:</p>
+                    <p class="no-club"> 소속된 동아리가 없습니다. </p>
+                <% else %>
+                    <p>소속:</p>
+                    <div class="mypage-above-button">
+                        <a href = '/club/my_club' id="mypage_myclub" ><%= Club.find_by_id(@club_id).club_name %></a>
+                    </div>
+                <% end %>
+                <!--지원자 또는 서버 관리자 또는 동아리관리자는 지원내용 확인하는 페이지로 갈 수 있도록 버튼활성화-->
+                
+                    <% if ApplyContent.find_by_user_id(current_user.id) != nil || current_user.authorization == '0' || current_user.authorization=='1' %>
+                        <% if ApplyContent.find_by_user_id(current_user.id) != nil %>
+                            <p>지원 여부: O</p>
+                        <% end %>
+                        <div class="mypage-above-button">
+                            <a href='/apply_content/index' id="mypage_myapply"><div id="mypage_p">지원 내용 확인</div></a>
+                        </div>
+                    <% else %>
+                        <!--<p>지원 여부: X</p>-->
+                        <!--<div class="mypage-above-button">-->
+                        <!--    <a href='/club/index' id="mypage_myapply"><div id="mypage_p">동아리 보기</div></a>-->
+                        <!--</div>-->
+                    <% end %>
+                        <div class="mypage-above-button">
+                            <a href = '/users/<%=u.id%>/edit' class="mypage-edit">수정</a>
+                        </div>
             <% end %>
-        <% end %>
-        
-        <% unless @club_id == nil %>
-            <p>소속 동아리 : <a href = '/club/my_club'><%= Club.find_by_id(@club_id).club_name %></a></p>
-        <% end %>
-        
-        <!--지원자 또는 서버 관리자 또는 동아리관리자는 지원내용 확인하는 페이지로 갈 수 있도록 버튼활성화-->
-        <% if ApplyContent.find_by_user_id(current_user.id) != nil || current_user.authorization == '0' || current_user.authorization=='1' %>
-            <p><a href='/apply_content/index'>지원내용확인하기</a></p>
         <% end %>
     </div>
 </div>

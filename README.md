@@ -57,8 +57,7 @@
 *   * login form 작업 예정 -> 끝
 *   * sign_up form 작업 예정 -> 끝
 *   * apply_content 작업 예정 -> 끝
-*   * pagenation 작업 
-*       동아리 목록, 
+*   * pagenation 작업 -> 보류
 *   
     반응형 <보류> 
     *  index에 반응형 웹 입히기.

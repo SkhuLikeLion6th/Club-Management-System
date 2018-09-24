@@ -1,6 +1,6 @@
 /*signup body*/
 .signup_body{
-	height: 950px;
+	height: 1000px;
 	font-family: 'WONDotum';
 }
 
@@ -22,11 +22,17 @@
 }
 
 .signupbox h1{
+	width: 40%;
 	text-align: center;
-	font-size: 28px;
+	font-size: 40px;
+	margin: 0 auto;
 	margin-bottom: 60px;
 	color: #555;
 	font-weight: bold;
+	/*border-bottom: 4px solid #FEE19F;*/
+	border-radius: 20px;
+	padding-bottom: 10px;
+	
 
 }
 

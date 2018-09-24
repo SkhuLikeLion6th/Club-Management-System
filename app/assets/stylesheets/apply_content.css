@@ -87,3 +87,9 @@
 	color: #434343;
 	line-height: 16px;
 }
+
+.applicant-card{
+    border: solid;
+    border-color: #FFD0D6;
+    border-width: 3px;
+}

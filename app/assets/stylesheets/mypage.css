@@ -1,15 +1,15 @@
 /*signup body*/
 .mypage_body{
-	height: 950px;
+	height: 1000px;
 	font-family: 'WONDotum';
 }
 
 
 /*signup box*/
 .mypagebox{
-	margin-top: 100px;
+	margin-top: 50px;
 	width: 630px;
-	height: 600px;
+	height: auto;
 	background: #ffeaed;
 	color: #fff;
 	top: 600px;
@@ -38,82 +38,67 @@
 	padding-top: 15px;
 }
 
-.mypagebox input{
-	width: 100%;
-	margin-bottom: 20px;
+.no-club{
+	text-align: center;
 }
 
-.mypagebox input[type="text"], .mypagebox input[type="password"], .signupbox input[type="email"]{
-	border: none;
-	border-bottom: 1px solid #fff;
-	background: transparent;
-	outline: none;
-	height: 40px;
-	color: #888;
-	font-size: 16px;
+.mypage-above-button{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	/*padding: 20px 0;*/
 }
 
-.mypagebox input[type="submit"]
-{
-	margin-top: 30px;
-	border: none;
-	outline: none;
-	height: 40px;
-	background: #FEE19F;
-	counter-reset: #fff;
-	font-size: 18px;
-	border-radius: 20px;
-}
-
-.mypagebox input[type="submit"]:hover
-{
-	cursor: pointer;
-	background: #ffc107;
-	color: #555;
-}
-
-/*select*/
-.selc{
-	overflow: hidden;
-
-}
-
-.selc_1{
-    width: 200px;
-    height: 30px;
-    padding-left: 70px;
-    margin: 23px 0;
-    font-size: 18px;
-    color: #888;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    display: inline-block;
-    float: left;
-    background-color: #fff;
-}
-
-.selc_2 {
-    width: 200px;
-    height: 30px;
-    padding-left: 25px;
-    margin: 23px 0;
-    font-size: 18px;
-    color: #888;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    display: inline-block;
-    float: left;
-    background-color: #fff;
-}
-
-
-.selc p{
-	margin: 26px 0;
-	float: left;
-	padding-left: 7px;
+.mypagebox a{
+	width: 40%;
 	display: inline-block;
-	padding-right: 5px;
+	text-align: center;
+	border: none;
+	outline: none;
+	height: 50px;
+	background: #FEE19F;
+	font-size: 23px;
+	border-radius: 20px;
+	text-decoration: none;
+	line-height: 20px;
+	color: #333;
+	
 }
-.selc p.p_1{
-	padding-left: 30px;
+.mypage-edit{
+	font-size: 15px;
+	padding-top: 15px;
+	margin-top: 50px;
+}
+
+.mypagebox a:hover{
+	color: #fff;
+	background: #ffc107;
+}
+
+#mypage_myclub{
+	width: 50%;
+	text-align: center;
+	border-bottom: 4px solid #FEE19F;
+	background-color: transparent;
+	font-size: 40px;
+	font-family: 'Do Hyeon', sans-serif;
+	padding-top: 15px;
+}
+a#mypage_myclub:hover{
+	color: #1E90FF;
+}
+
+#mypage_myapply{
+	width: 50%;
+	text-align: center;
+	border-bottom: 4px solid #FEE19F;
+	background-color: transparent;
+	font-size: 30px;
+	font-family: 'Do Hyeon', sans-serif;
+	
+}
+#mypage_myapply #mypage_p{
+	padding-top: 15px;
+	font-family: 'Do Hyeon', sans-serif;
+
 }

@@ -4,8 +4,9 @@ class VideoController < ApplicationController
   
   def index
     @user = User.new
+
     @videos = Video.all.order('created_at desc')
-    
+ 
     
 
   end

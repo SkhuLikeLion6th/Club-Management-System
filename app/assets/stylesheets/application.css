@@ -74,7 +74,7 @@
     color: white;
     background-color: #FFD0D6;
     /**/
-    cursor: wait;
+    cursor: pointer;
 }
 
 .menu-yellow{
@@ -90,9 +90,11 @@
 
 /*video menu*/
 
-.video_new, .video_index{
-    cursor: help;
-}
+/*.video_new, .video_index{*/
+/*    cursor: help;*/
+/*}*/
+
+
 /*footer*/
 
 footer{

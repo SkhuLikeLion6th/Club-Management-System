@@ -3,8 +3,9 @@
         <div class="content-title">동영상 보기</div>
         <%= form_for @user do |f| %>
             <%= f.collection_select :id, Club.all, :id, :club_name,{} ,{class: "class_name"} %>
-            <%= f.submit "이동" %>
+
         <%end%>
+        
         <div class="row">
                <% @videos.each do |video| %>
                 <div class="col-4">
