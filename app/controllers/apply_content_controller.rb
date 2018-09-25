@@ -40,4 +40,12 @@ class ApplyContentController < ApplicationController
     redirect_to '/apply_content/index'
   end
   
+  def destroy
+    if user_signed_in?
+      @apply_content = ApplyContent.find_by_user_id(params[:user_id])
+      @apply_content.destroy
+    end
+    
+    redirect_to '/apply_content/index'
+  end
 end

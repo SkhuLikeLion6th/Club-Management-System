@@ -1,6 +1,7 @@
 <div class="content-outline">
     <div class="content">
         <div class="content-title">지원 내용 확인</div>
+        <% if user_signed_in? %>
         <!--<div class="current-user-name">현재 로그인: <%= current_user.name %></div>-->
         
         <!--동아리 관리자는 지원서를 볼 수 있어야함-->
@@ -15,30 +16,31 @@
                                 지원자: <%= User.find(c.user_id).name %><br>
                                 <% unless x.title1 == nil %>
                                     Q 1. <%=x.title1%><br>
-                                    A: <%= c.content1 %><br>
+                                    A 1: <%= c.content1 %><br>
                                 <% end %>
                                 <% unless x.title2 == nil %>
                                     Q 2. <%=x.title2%><br>
-                                    content2: <%= c.content2 %><br>
+                                    A 2: <%= c.content2 %><br>
                                 <% end %>
                                 <% unless x.title3 == nil %>
                                     Q 3. <%=x.title3%><br>
-                                    content3: <%= c.content3 %><br>
+                                    A 3: <%= c.content3 %><br>
                                 <% end %>
                                 <% unless x.title4 == nil %>
                                     Q 4. <%=x.title4%><br>
-                                    content4: <%= c.content4 %><br>
+                                    A 4: <%= c.content4 %><br>
                                 <% end %>
                                 <% unless x.title5 == nil %>
                                     Q 5. <%=x.title5%><br>
-                                    content5: <%= c.content5 %><br>
+                                    A 5: <%= c.content5 %><br>
                                 <% end %>
                             <% end %>
                             <!--지원자 동아리 멤버로 등록하기-->
                             <a>작성일: <%= x.created_at %></a>
-                            <a><%= c.apply_form.club_id %></a>
+                            <!--<a><%= c.apply_form.club_id %></a>-->
                             <% if (ClubMember.find_by_user_id(c.user_id) && ClubMember.find_by_club_id(c.apply_form.club_id)) == nil %>
-                                <br><a href='/club/add_club_member/<%=x.club_id%>/<%=c.user_id%>'>수락</a>
+                                <br><a href='/club/add_club_member/<%=x.club_id%>/<%=c.user_id%>'><div class="button-apply-index-edit">수락하기</div></a>
+                                <a href="/apply_content/destroy/<%=c.user_id%>"><div class="button-apply-index-edit">삭제하기</div></a>
                             <% end %>
                             <hr>
                         <% end %>
@@ -174,10 +176,15 @@
                             <% end %>
                         <% end %>
                         <div class="button-in-apply-content">
-                            <a href="/apply_content/edit/<%=c.id%>"><div class="button-apply-index-edit">수정하기</div></a>
+                            <!--아직 회원으로 등록되지 않은 경우에만 수정, 삭제 가능-->
+                            <% if ClubMember.find_by_user_id(c.user_id) == nil %>
+                                <a href="/apply_content/edit/<%=c.id%>"><div class="button-apply-index-edit">수정하기</div></a>
+                                <a href="/apply_content/destroy/<%=c.id%>"><div class="button-apply-index-edit">삭제하기</div></a>
+                            <% end %>
                         </div>
                     <% end %>
                 <% end %>
+            <% end %>
             <% end %>
     </div>
 </div>

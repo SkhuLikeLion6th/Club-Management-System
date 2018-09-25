@@ -1,12 +1,13 @@
 <div class="content-outline">
     <div class="content">
         <div class="content-title">저장된 지원 양식</div>
-        <div class="current-user-name">현재 로그인: <%= current_user.name %></div>
+        <% if user_signed_in? %>
+        <!--<div class="current-user-name">현재 로그인: <%= current_user.name %></div>-->
         
         <!--동아리 관리자만 지원 양식을 볼 수 있어야 함-->
         <% if current_user.authorization == '1' %>
             <!--현재 로그인자의 클럽아이디를 찾아서 변수에 저장해둠(필요할때마다 일일이 찾기 귀찮아서ㅋ)-->
-            <%current_user_club_id=ClubMember.find_by_user_id(current_user.id).club_id%>
+            <% current_user_club_id = ClubMember.find_by_user_id(current_user.id).club_id%>
             <!--자신의 동아리에 지원 양식이 없는 경우-->
                 <% if @forms.find_by_club_id(current_user_club_id)==nil%>
                     동아리 이름: <%=Club.find(current_user_club_id).club_name%>
@@ -52,7 +53,7 @@
                     </div>
                 <% end %>
             <% end %>
-            
+        <% end %>
         <% end %>
     </div>
 </div>

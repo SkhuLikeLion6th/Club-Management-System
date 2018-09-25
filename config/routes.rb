@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
   # 지원양식 생성
   get 'apply_form/new'  
-  post 'apply_form/create/:user_id' => 'apply_form#create'
+  post 'apply_form/create/:club_id' => 'apply_form#create'
   
   # 지원양식 수정
   get 'apply_form/edit/:club_id' => 'apply_form#edit'
@@ -80,6 +80,9 @@ Rails.application.routes.draw do
   # 지원서 수정
   get 'apply_content/edit/:apply_content_id' => 'apply_content#edit'
   post 'apply_content/update/:apply_content_id' => 'apply_content#update'
+  
+  # 지원서 삭제
+  get 'apply_content/destroy/:user_id' => 'apply_content#destroy'
   
   # 마이페이지
   get 'users/index' 

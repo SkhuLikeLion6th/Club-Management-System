@@ -51,19 +51,19 @@ User.create(email: 'devdogs_admin', password: '123456',
 # 일반 유저
 User.create(email: 'likelion_user1', password: '123456',
             department_id: 3, name: '멋쟁이 사자처럼 회원1', phone_number: '000-0000-0000',
-            mail: 'likelion@user1', grade_id: '0', authorization: 2)
+            mail: 'likelion@user1', grade_id: '1', authorization: 2)
             
 User.create(email: 'likelion_user2', password: '123456',
             department_id: 3, name: '멋쟁이 사자처럼 회원2', phone_number: '000-0000-0000',
-            mail: 'likelion@user2', grade_id: '0', authorization: 2)
+            mail: 'likelion@user2', grade_id: '2', authorization: 2)
             
 User.create(email: 'devdogs_user1', password: '123456',
             department_id: 3, name: '개발자들 회원1', phone_number: '000-0000-0000',
-            mail: 'devdogs@user1', grade_id: '0', authorization: 2)
+            mail: 'devdogs@user1', grade_id: '1', authorization: 2)
             
 User.create(email: 'devdogs_user2', password: '123456',
             department_id: 3, name: '개발자들 회원2', phone_number: '000-0000-0000',
-            mail: 'devdogs@user2', grade_id: '0', authorization: 2)
+            mail: 'devdogs@user2', grade_id: '2', authorization: 2)
 
 # 어떤 단체에도 소속되어있지 않은 회원
 User.create(email: '201635034', password: '123456',
