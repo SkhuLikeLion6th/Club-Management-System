@@ -15,6 +15,7 @@
 
 .current-user-name{
     text-align: right;
+    margin-bottom:10px;
 }
 
 .svg-line-apply-index-pink{
@@ -92,4 +93,52 @@
     border: solid;
     border-color: #FFD0D6;
     border-width: 3px;
+}
+
+.apply-card-for-manager{
+    display: inline-block;
+    margin: 5px;
+    padding: 8px;
+}
+
+.apply-card-outline{
+    margin-top: 20px;
+    padding: 5px;
+    border: solid;
+    border-width: 4px;
+    border-color: #FFD0D6;
+}
+
+.apply-card-align{
+    max-width: 50%;
+}
+
+.button-in-apply-card{
+    text-align: center;
+}
+
+.button-apply-card-pink{
+    font-size: 18px;
+    margin: 0.3rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FFD0D6;
+    color: white !important;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.button-apply-card-yellow{
+    font-size: 18px;
+    margin: 0.3rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    background-color: #FEE19F;
+    color: white !important;
+    border-radius: 20px;
+    display: inline-block;
 }

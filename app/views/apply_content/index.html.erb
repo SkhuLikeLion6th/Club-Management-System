@@ -10,10 +10,14 @@
                 <% @forms.each do |x| %>
                     <!--자신이 속한 동아리 지원서만 보이도록 해야함-->
                     <% if x.club_id == current_user_club_id %>
-                        동아리 이름: <%=Club.find(x.club_id).club_name%><br>
+                        <div class="current-user-name">동아리 이름: <%=Club.find(x.club_id).club_name%></div>
+                        <div class="row">
                         <% @apply_contents.each do |c| %>
                             <% if c.apply_form_id == current_user_club_id %>
-                                지원자: <%= User.find(c.user_id).name %><br>
+                            <div class="apply-card-align">
+                            <div class="apply-card-outline">
+                            <div class="apply-card-for-manager">
+                                <div class="applicant-name">지원자: <%= User.find(c.user_id).name %></div>
                                 <% unless x.title1 == nil %>
                                     Q 1. <%=x.title1%><br>
                                     A 1: <%= c.content1 %><br>
@@ -37,13 +41,18 @@
                             <% end %>
                             <!--지원자 동아리 멤버로 등록하기-->
                             <a>작성일: <%= x.created_at %></a>
+                            </div>
                             <!--<a><%= c.apply_form.club_id %></a>-->
                             <% if (ClubMember.find_by_user_id(c.user_id) && ClubMember.find_by_club_id(c.apply_form.club_id)) == nil %>
-                                <br><a href='/club/add_club_member/<%=x.club_id%>/<%=c.user_id%>'><div class="button-apply-index-edit">수락하기</div></a>
-                                <a href="/apply_content/destroy/<%=c.user_id%>"><div class="button-apply-index-edit">삭제하기</div></a>
+                                <div class="button-in-apply-card">
+                                    <a href='/club/add_club_member/<%=x.club_id%>/<%=c.user_id%>'><div class="button-apply-card-pink">수락하기</div></a>
+                                    <a href="/apply_content/destroy/<%=c.user_id%>"><div class="button-apply-card-yellow">삭제하기</div></a>
+                                </div>
                             <% end %>
-                            <hr>
+                            </div>
+                            </div>
                         <% end %>
+                        </div>
                     <% end %>
                 <% end %>
                 

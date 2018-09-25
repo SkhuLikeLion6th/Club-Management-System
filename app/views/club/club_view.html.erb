@@ -59,9 +59,9 @@
                                 <% if ApplyForm.find_by_club_id(@club.id) == nil %>
                                     <a href="/apply_form/new"><div class="button-in-club-view-yellow">지원서 양식 만들기</div></a>
                                 <% else %>
-                                    <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-pink">지원서 양식 수정</div></a>
+                                    <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-yellow">지원서 양식 수정</div></a>
                                 <% end %>
-                                <a href="/apply_content/index"><div class="button-in-club-view-yellow">지원 내용 확인</div></a>
+                                <a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>
                             <!--현재 로그인 한 단체 관리자가 현재 클럽의 단체 관리자가 아닌경우-->
                             <% else %>
                                 <a href="#"><div class="button-in-club-view-pink">권한없음</div></a>
@@ -88,18 +88,18 @@
                         <% if ApplyForm.find_by_club_id(@club.id) == nil %>
                             <a href="#"><div class="button-in-club-view-yellow">지원서 양식 만들기</div></a>
                         <% else %>
-                            <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-pink">지원서 양식 수정</div></a>
+                            <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-yellow">지원서 양식 수정</div></a>
                         <% end %>
-                        <a href="/apply_content/index"><div class="button-in-club-view-yellow">지원 내용 확인</div></a>
+                        <a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>
                     <% elsif user_signed_in? && current_user.authorization == "1" %>
                         <% if @current_check_club != nil && @current_check_club.club_id == @club.id %>
                             <a href="/club/option_change/<%= @club.id %>"><div class="button-in-club-view-pink">지원 시작</div></a>
                             <% if ApplyForm.find_by_club_id(@club.id) == nil %>
                                 <a href="/apply_form/new"><div class="button-in-club-view-yellow">지원서 양식 만들기</div></a>
                             <% else %>
-                                <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-pink">지원서 양식 수정</div></a>
+                                <a href="/apply_form/edit/<%= @club.id %>"><div class="button-in-club-view-yellow">지원서 양식 수정</div></a>
                             <% end %>
-                            <a href="/apply_content/index"><div class="button-in-club-view-yellow">지원 내용 확인</div></a>
+                            <a href="/apply_content/index"><div class="button-in-club-view-pink">지원 내용 확인</div></a>
                         <% else %>
                             <a href="#"><div class="button-in-club-view-pink">권한없음</div></a>
                         <% end %>

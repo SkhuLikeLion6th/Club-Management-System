@@ -161,6 +161,7 @@ class ClubController < ApplicationController
           
           @option.save
           redirect_to '/club/index/'
+        
         end
       else
         redirect_to '/club/index/'

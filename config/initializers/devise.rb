@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'a6c439b8f08aea72e4dc056117d032867555b08281f4fc9fc4953f6fa05f1ad5139cc66d097a8679987aa573570c9c4dcd690539da2d25a86f1ded97564d1b05'
+  # config.secret_key = '1ec0af710a77e7204d29114240c35ee837280c0fb0808dd1db7d1f575bbdee0372f85e8a5656750427883220bb3dffa7b9182696cdb03a7eef0259a5eae7b9ed'
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c3ae8b669c83fb317f874a1ba6951028340e7ab2d6a1557a6e5effbea724e434cb9cb9151cbd85780a054f7b5235236a1d03ca455e5e2a92bddaa10631a2e700'
+  # config.pepper = '130ea22dd97fd0b55839f63b0269168a3667f46ffcc2c5f83c981385d2b85ce8b1ba26397e810d117131adf602e95db23cf47c27f388ad5d2aa5c2ac1fe3d0a6'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -168,8 +168,7 @@ Devise.setup do |config|
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
-  config.email_regexp = nil
+  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -252,7 +251,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
