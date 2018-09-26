@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users
   #회원정보 수정하는 라우트
   devise_scope :user do 
+    get '/users/sign_out' , to: 'devise/sessions#destroy'
     get '/users/:id/edit' , to: 'users#edit'
     patch '/users/:id', to: 'users#update'
   end

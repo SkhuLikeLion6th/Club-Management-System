@@ -7,7 +7,7 @@
             <tr>
               <th scope="col">이름</th>
               <th scope="col">전화번호</th>
-              <th scope="col">메일</th>
+              <th scope="col">이메일</th>
               <th scope="col">학번</th>
               <th scope="col">학과</th>
               <th scope="col">학년</th>
@@ -16,10 +16,18 @@
           </thead>
         
         <% @members.each do |x| %>
-            <a><%= x.user.name %></a>
-            <a><%= x.club.club_name %></a>
-            <a href = "/club/delete_club_member/<%= x.id %>">삭제</a><br>
-            <hr>
+                <tbody>
+                    <tr>
+                      <td><%= x.user.name %></td>
+                      <td><%= x.user.phone_number %></td>
+                      <td><%= x.user.mail %></td>
+                      <td><%= x.user.email %></td>
+                      <td><%= x.user.department.department_name %></td>
+                      <td><%= x.user.grade_id %> 학년</td>
+                      <td><%= x.club.club_name %></td>
+                      <td><a href = "/club/delete_club_member/<%= x.id %>">삭제</a></td>
+                    </tr>
+                </tbody>
         <% end %>
         </table>
     <% elsif current_user.authorization == '1' %>
@@ -29,7 +37,7 @@
             <tr>
               <th scope="col">이름</th>
               <th scope="col">전화번호</th>
-              <th scope="col">메일</th>
+              <th scope="col">이메일</th>
               <th scope="col">학번</th>
               <th scope="col">학과</th>
               <th scope="col">학년</th>

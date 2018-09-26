@@ -148,6 +148,7 @@ class ClubController < ApplicationController
         # 현재 로그인 한 유저가 보고있는 클럽에 속해있는지 확인하는 함수
         @check_in_club = ClubMember.find_by_user_id(current_user.id)
         # 만약 로그인 한 유저의 클럽이 보고있는 클럽과 다를경우
+        # 현수 수정 요망
         if @check_in_club.club_id != params[:club_id]
           redirect_to '/club/index/'
         else

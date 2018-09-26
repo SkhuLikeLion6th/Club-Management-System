@@ -22,9 +22,6 @@ class VideoController < ApplicationController
       redirect_to new_video_path 
     end
   
- 
-
-
   end
   
   def edit
@@ -55,4 +52,6 @@ class VideoController < ApplicationController
    redirect_to root_path 
   end
   
+  def video_list
+  end
 end
