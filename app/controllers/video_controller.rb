@@ -11,12 +11,22 @@ class VideoController < ApplicationController
 
   end
   
+  
+  def destroy
+    @videos = Video.find(params[:id])
+    @videos.destroy
+    redirect_to root_path
+  end
+  
+  
+  
+  
   def new
   end
   
   def create
-    new_video = Video.new(user_id: current_user.id, content: params[:content], title: params[:title] )
-    if new_video.save
+    @videos = Video.new(user_id: current_user.id, content: params[:content], title: params[:title] )
+    if @videos.save
       redirect_to root_path
     else
       redirect_to new_video_path 
@@ -26,14 +36,14 @@ class VideoController < ApplicationController
   
   def edit
     
-    @videos = Video.find_by(id: params[:id])
+    @videos = Video.find(params[:id])
   end
   
   def show
   end
   
   def update
-    @videos = Video.find_by(id: params[:id])
+    @videos = Video.find(params[:id])
     redirect_to root_path if @videos.user.id != current_user.id
     @videos.title = params[:title]
     @videos.content = params[:content]
@@ -44,14 +54,9 @@ class VideoController < ApplicationController
     end
   end
   
-  def destory
-   @videos = Video.find_by(id: params[:id])
-   redirect_to root_path if @videos.user.id != current_user.id
-   
-   @videos.destroy
-   redirect_to root_path 
-  end
+
   
   def video_list
+    
   end
 end

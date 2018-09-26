@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root 'front#index'
   
   get 'apply_content/create'
+  
+  get '/video/:id' => 'video#destroy'
+
 
   devise_for :users
   #회원정보 수정하는 라우트
