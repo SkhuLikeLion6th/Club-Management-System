@@ -1,6 +1,6 @@
 /*여백초기화*/
 
-body, div, dl, dd, dt, ul, li, ol, h1, h2, h3, h4, h5, h6, form, legend, textarea, select, fieldset, p, button, input,pre, table {margin: 0; padding: 0;}
+body, div, dl, dd, dt, ul, li, ol, h1, h2, h3, h4, h5, h6, form, legend, textarea, select, fieldset, p, button, input,pre, table {margin: 0; padding: 0; font-family: initial;}
 
 /*a link 초기화*/
 
