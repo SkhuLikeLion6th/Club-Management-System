@@ -3,6 +3,7 @@ class ApplyContentController < ApplicationController
     @forms = ApplyForm.all.reverse
     @apply_contents= ApplyContent.all
   end
+  
   def new
     @apply_form = ApplyForm.find_by(:club_id => params[:club_id])
   end

@@ -43,3 +43,11 @@ iframe{
     margin-top: -1rem;
     font-family: 'WONDotum';
 }
+
+.video-list{
+    margin-top: 30px;
+}
+
+.club-select{
+    text-align: right;
+}

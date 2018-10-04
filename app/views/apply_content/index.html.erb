@@ -14,9 +14,6 @@
                         <div class="row">
                         <% @apply_contents.each do |c| %>
                             <% if c.apply_form_id == current_user_club_id %>
-                            <div class="apply-card-align">
-                            <div class="apply-card-outline">
-                            <div class="apply-card-for-manager">
                                 <div class="applicant-name">지원자: <%= User.find(c.user_id).name %></div>
                                 <% unless x.title1 == nil %>
                                     Q 1. <%=x.title1%><br>
@@ -41,7 +38,6 @@
                             <% end %>
                             <!--지원자 동아리 멤버로 등록하기-->
                             <a>작성일: <%= x.created_at %></a>
-                            </div>
                             <!--<a><%= c.apply_form.club_id %></a>-->
                             <% if (ClubMember.find_by_user_id(c.user_id) && ClubMember.find_by_club_id(c.apply_form.club_id)) == nil %>
                                 <div class="button-in-apply-card">
@@ -49,8 +45,6 @@
                                     <a href="/apply_content/destroy/<%=c.user_id%>"><div class="button-apply-card-yellow">삭제하기</div></a>
                                 </div>
                             <% end %>
-                            </div>
-                            </div>
                         <% end %>
                         </div>
                     <% end %>
