@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:new, :create, :edit, :update]
   
+  
   # 지원할 수 있는 단체를 보는 라우트
   get 'club/appliable_club'
   
@@ -96,6 +97,12 @@ Rails.application.routes.draw do
   get 'front/index'
   
   get 'front/try'
+  
+  get 'post/index' => 'post#index'
+  
+  get 'post/new' => 'post#new'
+  
+  post 'post/create' => 'post#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

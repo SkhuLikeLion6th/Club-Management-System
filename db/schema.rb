@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918113959) do
+ActiveRecord::Schema.define(version: 20181007085032) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20180918113959) do
     t.string   "apply_active", default: "1"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "content"
+    t.text     "title"
+    t.integer  "user_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_posts_on_club_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

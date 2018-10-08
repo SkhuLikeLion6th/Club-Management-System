@@ -35,29 +35,32 @@
             </div>
         </div>
       
-      <!-- 단체별 썸네일 -->
-      <div class="content content-main">
-        <div class="row">
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
-          <div class="col-2">
-            <img class="thumnail-in-main" src="/assets/thum.jpeg" alt="img">
-          </div>
+        <!--club index-->
+      <div class="mainpage-club">
+        <div class="mainpage-club-title">동아리 목록</div>
+        
+        <div class="mainpage-club-card-align">
+            <% @clubs.each do |i| %>
+                <div class="mainpage-club-card">
+                    <div class="mainpage-club-index-top">
+                        <a href="/club/club_view/<%= i.id %>">
+                          <img src="/assets/rectangular.png" alt="square" width="100%">
+                        </a>
+                        <div class="mainpage-club-index-name">
+                          <a href="/club/club_view/<%= i.id %>"><%= i.club_name %></a>
+                        </div>
+                    </div>
+                    <svg class="svg-line" height="25" width="150">
+                        <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
+                    </svg>
+                    <div class="mainpage-club-index-intro">
+                      <p><%= i.introduce %></p>
+                    </div>
+                </div>  
+            <% end %>
         </div>
       </div>
+
       
     </div>
     

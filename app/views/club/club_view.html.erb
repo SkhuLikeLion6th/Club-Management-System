@@ -3,7 +3,9 @@
         <form action = "/club/club_view/<%= @club.id %>" method="get">
             <!--단체의 이미지, 이름, 소개-->
             <div class="club-view">
-                <div class="content-title"><p><%= @club.club_name %></p></div>
+                <div class="content-title">
+                    <p class="club-name"><%= @club.club_name %></p>
+                </div>
                 <% unless @club.img_url.nil? %> 
                     <img src="<%= @club.img_url %>"/> 
                 <% end %>

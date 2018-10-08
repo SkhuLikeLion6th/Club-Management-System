@@ -27,12 +27,36 @@ Grade.create(grade_name: '3학년')
 Grade.create(grade_name: '4학년')
 
 ## 단체 (동아리, 소모임)
-Club.create(club_name: '멋쟁이사자처럼')
-Club.create(club_name: '개발자들')
+Club.create(club_name: '멋쟁이사자처럼', introduce: 'Hack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your Life')
+Club.create(club_name: '개발자들', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_1', introduce: '길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트')
+Club.create(club_name: 'TEST_CLUB_2', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_3', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_4', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_5', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_6', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_7', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_8', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_9', introduce: 'Hack Your Life')
+Club.create(club_name: 'TEST_CLUB_10', introduce: 'Hack Your Life')
+
+
 
 # 단체 옵션
-Option.create(club_id: 1, apply_active: 0) # 멋쟁이 사자처럼 옵션
+Option.create(club_id: 1, apply_active: 1) # 멋쟁이 사자처럼 옵션
 Option.create(club_id: 2, apply_active: 0) # 개발자들 옵션
+Option.create(club_id: 3, apply_active: 0)
+Option.create(club_id: 4, apply_active: 1)
+Option.create(club_id: 5, apply_active: 0)
+Option.create(club_id: 6, apply_active: 0)
+Option.create(club_id: 7, apply_active: 1)
+Option.create(club_id: 8, apply_active: 0)
+Option.create(club_id: 9, apply_active: 0)
+Option.create(club_id: 10, apply_active: 1)
+Option.create(club_id: 11, apply_active: 0)
+Option.create(club_id: 12, apply_active: 0)
+
+
 
 # 사이트 관리자
 User.create(email: 'admin', password: '123456',
@@ -69,6 +93,10 @@ User.create(email: 'devdogs_user2', password: '123456',
 User.create(email: '201635034', password: '123456',
             department_id: 2, name: '함진경', phone_number: '000-0000-0000',
             mail: 'guest@user', grade_id: '3', authorization: 2)
+            
+User.create(email: '201814102', password: '123456',
+            department_id: 1, name: '박 결', phone_number: '000-0000-0000',
+            mail: '1@1', grade_id: '1', authorization: 2)            
 
 # 멋쟁이 사자처럼 단체 소속
 ClubMember.create(club_id: 1, user_id: 2)

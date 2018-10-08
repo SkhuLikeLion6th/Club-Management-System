@@ -165,26 +165,4 @@
     margin-bottom: 20px;
 }
 
-/* club-members */
 
-.button-in-club-members{
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.button-apply-content-confirm{
-    margin: 0.3rem;
-    font-size: 18px;
-    padding-top: 0.45rem;
-    padding-bottom: 0.45rem;
-    padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    background-color: #FEE19F;
-    color: white;
-    border-radius: 20px;
-    display: inline-block;
-}
-
-.manager-authority{
-    margin-bottom: 20px;
-}

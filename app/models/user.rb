@@ -6,6 +6,8 @@ class User < ApplicationRecord
          
   has_many :club_members
   has_many :videos
+  has_many :posts
+  
   belongs_to :department
   belongs_to :grade
 end

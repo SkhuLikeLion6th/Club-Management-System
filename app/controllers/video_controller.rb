@@ -27,7 +27,7 @@ class VideoController < ApplicationController
   def create
     @videos = Video.new(user_id: current_user.id, content: params[:content], title: params[:title] )
     if @videos.save
-      redirect_to root_path
+      redirect_to '/video/index'
     else
       redirect_to new_video_path 
     end

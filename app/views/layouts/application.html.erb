@@ -6,11 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="author" content="BE: 김승래, 함진경, 한현수 / FE: 박결, 홍다은">
 	<meta name="description" content="성공회대 모임 찾기/가입 플렛폼입니다.">
-	<meta name="keywords" content="성공회대, 동아리, 소모임, 학생회, 단체"> 	
+	<meta name="keywords" content="성공회대, 동아리, 소모임, 학생회, 단체"> 
 	
 	<!--viewport 반응형준비-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <!--파비콘-->
+	<link rel="icon" type="image/x-icon" href="https://library.skhu.ac.kr/favicon.ico" />
+
     <!--title-->
   <title>Ari Check</title>
   
@@ -63,8 +66,11 @@
 				      <% else %>
 				        <% if current_user.authorization == '0' %>
     			        <a class="menu-yellow" href="/club/club_members">전체 회원 목록</a>
+    			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% elsif current_user.authorization == '1' %>
+    			        
     			        <a class="menu-yellow" href="/club/club_members">단체 회원 목록</a>
+    			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% else %>
     			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% end %>
