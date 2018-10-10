@@ -1,8 +1,9 @@
+<!--지원자의 지원서 내용을 볼 수 있는 페이지-->
 <div class="content-outline">
     <div class="content">
-        <div class="content-title">지원서 수정 페이지</div>
-        <form action="/apply_content/update/<%= @content.id %>" method="post">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="content-title">지원 내용 확인</div>
+        <p>지원자: <%= User.find(@content.user_id).name %></p>
+        <p>작성일: <%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></p>
         <!--첫번째 질문-->
         <% unless @form.title1 == nil %>
             <div class="apply-content-outline">
@@ -13,11 +14,11 @@
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 1.</div>
-                        <div class="question-content"><%=@form.title1%></div>
+                        <%=@form.title1%>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 1.</div>
-                        <textarea class="textarea-1" name="content1" cols="80" rows="8"><%=@content.content1%></textarea>
+                        <%= @content.content1 %>
                     </div>
                 </div>
                 <div class="structure-end">
@@ -38,11 +39,11 @@
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 2.</div>
-                        <div class="question-content"><%=@form.title2%></div>
+                        <%=@form.title2%>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 2.</div>
-                        <textarea class="textarea-1" name="content2" cols="80" rows="8"><%=@content.content2%></textarea>
+                        <%= @content.content2 %>
                     </div>
                 </div>
                 <div class="structure-end">
@@ -63,11 +64,11 @@
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 3.</div>
-                        <div class="question-content"><%=@form.title3%></div>
+                        <%=@form.title3%>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 3.</div>
-                        <textarea class="textarea-1" name="content3" cols="80" rows="8"><%=@content.content3%></textarea>
+                        <%= @content.content3 %>
                     </div>
                 </div>
                 <div class="structure-end">
@@ -78,6 +79,7 @@
                 </div>
             </div>
         <% end %>
+        <!--네번째 질문-->
         <% unless @form.title4 == nil %>
             <div class="apply-content-outline">
                 <svg class="svg-line-apply-index-pink" height="100" width="100">
@@ -87,11 +89,11 @@
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 4.</div>
-                        <div class="question-content"><%=@form.title4%></div>
+                        <%=@form.title4%>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 4.</div>
-                        <textarea class="textarea-1" name="content4" cols="80" rows="8"><%=@content.content4%></textarea>
+                        <%= @content.content4 %>
                     </div>
                 </div>
                 <div class="structure-end">
@@ -102,6 +104,7 @@
                 </div>
             </div>
         <% end %>
+        <!--다섯번째 질문-->
         <% unless @form.title5 == nil %>
             <div class="apply-content-outline">
                 <svg class="svg-line-apply-index-pink" height="100" width="100">
@@ -111,11 +114,11 @@
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 5.</div>
-                        <div class="question-content"><%=@form.title5%></div>
+                        <%=@form.title5%>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 5.</div>
-                        <textarea class="textarea-1" name="content5" cols="80" rows="8"><%=@content.content5%></textarea>
+                        <%= @content.content5 %>
                     </div>
                 </div>
                 <div class="structure-end">
@@ -127,8 +130,18 @@
             </div>
         <% end %>
         <div class="button-in-apply-content">
-            <input class="button-apply-re-submit" type="submit" value="제출">
-        </div>    
-        </form>
+            <!--현재 로그인한 유저가 일반유저면 내용을 수정,삭제할 수 있다-->
+            <% if current_user.authorization == '2' %>
+                <% if ClubMember.find_by_user_id(@content.user_id) == nil %>
+                    <a href="/apply_content/edit/<%=@content.id%>"><div class="button-apply-index-edit">수정하기</div></a>
+                    <a href="/apply_content/destroy/<%=@content.id%>"><div class="button-apply-index-edit">삭제하기</div></a>
+                <% end %>
+            <!--현재 로그인한 유저가 서버관리자 또는 단체관리자이면 글을 쓴 유저를 동아리에 등록하거나 글을 삭제할 수 있다-->
+            <!--글 삭제하는거는 db에 삭제된다는 의미이므로 이부분은 논의를 해야함-->
+            <% else %>
+                <a href='/club/add_club_member/<%= @form.club_id %>/<%= @content.user_id %>'><div class="button-apply-index-edit">수락하기</div></a>
+                <a href="/apply_content/destroy/<%= @content.id %>"><div class="button-apply-index-edit">삭제하기</div></a>
+            <% end %>
+        </div>
     </div>
 </div>

@@ -82,7 +82,7 @@ class ClubController < ApplicationController
   end
   
   def add_club_member # 클럽 멤버를 추가하는 함수
-    if user_signed_in? && current_user.authorization == '1'
+    if user_signed_in? && current_user.authorization != '2'
       @member = ClubMember.new
       @member.user_id = params[:user_id]
       @member.club_id = params[:club_id]
@@ -112,11 +112,11 @@ class ClubController < ApplicationController
     
     # 현재 로그인 한 유저가 현재 보고있는 클럽에 속해있는지 확인하는 함수
     if user_signed_in?
-      @current_check_club = ClubMember.find_by_user_id(current_user.id) && ClubMember.find_by_club_id(@club)
+      @current_check_club = ClubMember.find_by_user_id(current_user.id) && ClubMember.find_by_club_id(@club.id)
     end
     
     # 보고있는 클럽의 옵션테이블을 확인하는 테이블을 저장.
-    @current_check_option = Option.find_by_club_id(@club)
+    @current_check_option = Option.find_by_club_id(@club.id)
   end
   
   def club_members
@@ -143,7 +143,7 @@ class ClubController < ApplicationController
         end
         
         @option.save
-        redirect_to '/club/index/'
+        redirect_to '/club/club_view/' + @option.club_id.to_s
       elsif current_user.authorization == "1"
         # 현재 로그인 한 유저가 보고있는 클럽에 속해있는지 확인하는 함수
         @check_in_club = ClubMember.find_by_user_id(current_user.id)
@@ -160,7 +160,7 @@ class ClubController < ApplicationController
           end
           
           @option.save
-          redirect_to '/club/index/'
+          redirect_to '/club/club_view/' + @option.club_id.to_s
         
         end
       else

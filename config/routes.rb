@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ect/repairing_page'
+
   resources :video, except: [:show]
   # 유튜브 동영상 링크 업로드 하는 곳
   post '/video/new' => 'video#create'
@@ -75,8 +77,12 @@ Rails.application.routes.draw do
   
   ## 지원내용 관련 routes ##
   # 지원내용 확인
-  get 'apply_content/index' # 동아리 관리자는 자신의 동아리에 지원한 사람의 지원서 목록을 확인하고,
-                            # 지원자는 자신의 지원서를 확인하는 페이지
+  get 'apply_content/index' # 동아리 관리자, 서버 관리자는 지원한 사람들의 목록과 지원서 내용을 볼 수 있다.
+  get 'apply_content/index_backup'
+  
+  get 'apply_content/user_application_view/:apply_content_id' => 'apply_content#user_application_view' # 지원한 내용을 보는 뷰
+  
+  get 'apply_content/user_application_list' # 일반 유저가 지원한 동아리들의 목록을 볼 수 있는 페이지
   
   # 지원서 작성
   get 'apply_content/new/:club_id' => 'apply_content#new'
@@ -87,7 +93,7 @@ Rails.application.routes.draw do
   post 'apply_content/update/:apply_content_id' => 'apply_content#update'
   
   # 지원서 삭제
-  get 'apply_content/destroy/:user_id' => 'apply_content#destroy'
+  get 'apply_content/destroy/:apply_content_id' => 'apply_content#destroy'
   
   # 마이페이지
   get 'users/index' 
@@ -103,6 +109,9 @@ Rails.application.routes.draw do
   get 'post/new' => 'post#new'
   
   post 'post/create' => 'post#create'
+  
+  # 점검중 페이지
+  get 'ect/repairing_page' => 'ext#repairing_page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

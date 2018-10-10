@@ -111,7 +111,7 @@ ClubMember.create(club_id: 2, user_id: 4)
 
 
 #지원 양식
-ApplyForm.create(club_id: 1, title1: '멋사 질문1', title2: '멋사 질문2', title3: '멋사 질문3', title4: '멋사 질문4', title5: '멋사 질문5')
+ApplyForm.create(club_id: 1, title1: '당신이 만들고 싶은 서비스는 무엇인가요?', title2: '가장 기억에 남는 웹서비스가 있다면 무엇인가요?' , title3: '멋쟁이 사자처럼에 대해서 아는 것을 말씀해주세요.', title4: '멋쟁이 사자처럼은 우수한 동아리이지만, 그만큼 엄격한 규칙을 가지고 있습니다. 이를 지키실 수 있나요?', title5: '마지막으로 하고 싶은 말을 적어주세요')
 ApplyForm.create(club_id: 2, title1: '개발자들 질문1', title2: '개발자들 질문2', title3: '개발자들 질문3')
 
 #지원 내용

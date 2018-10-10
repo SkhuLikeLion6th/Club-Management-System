@@ -60,7 +60,7 @@
     * 전체 회원 목록 R(사이트 관리자만 가능) 완성
     * 옵션 테이블 U 완성
     * 각 단체의 소개 U 완성
-     
+    * 지원 내용 확인하는 과정 변경(전: /club/club_view/:club_id -> apply_content/index, 후: /users/index -> apply_content/index -> apply_content/user_application_view/:apply_content_id)
      
 -----------------------------------
     FE 할 일:
@@ -77,6 +77,12 @@
         동아리 관리자
             => 동아리 관리 페이지가 
 
+-----------------------------------    
+    BE 할 일:
+        /club/appliable_club에서 Apply active가 1인데도 클럽이 안보이는 문제 해결하기
+        /club/club_view/에서 권한 '1','2'일때 안보여야할 부분이 보임 이부분 빨리 수정하기
+        지원 마감, 시작 방식 변경하기(지원을 시작하면 동시에 지원 양식을 쓰는 창이 뜸, 처음 클럽을 생성할때 동시에 apply_form도 만들어지고 지원 시작할 때는 Update방식으로 하기)
+        apply_finished db테이블 만들기(이미 마감되서 불필요한 apply_content테이블을 저장하는 테이블, Read만 가능, 용도는 예전에 썻던 동아리 신청서를 볼수 있음, 결형이 요청함)
 -----------------------------------    
 * 박결
 *   * login form 작업 예정 -> 끝
