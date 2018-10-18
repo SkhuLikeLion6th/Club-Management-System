@@ -1,0 +1,30 @@
+.user_apply_info{
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+.user_apply_name{
+    font-size: 30px;
+    color: #555;
+}
+.user_apply_date{
+    position: absolute;
+    top:70px;
+    right:0;
+}
+.question_box{
+    display: inline;
+    padding-bottom: 3px;
+    font-size: 25px;
+    border-bottom: 2px solid #999;
+    font-weight: bold;
+    color: #555;
+}
+.answer_box{
+    min-height: 200px;
+    padding: 5px 1rem;
+    border: 1.5px solid #bbb;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+}

@@ -4,13 +4,12 @@
     margin-bottom: 50px;
     /*height: 800px;*/
     min-height: 500px;
-    
 }
 
 .content{
     width: 1000px;
     margin: auto;
-    font-family: 'WONDotum';
+    font-family: 'netmarbleL';
     color: #434343;
 }
 
@@ -25,9 +24,9 @@
 }
 
 .content-title{
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     text-align: center;
-    font-family: 'WONDotum';
+    font-family: 'netmarbleL';
     margin-bottom: 40px;
 }
 

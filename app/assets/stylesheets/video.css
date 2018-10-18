@@ -33,7 +33,6 @@
 .content-video{
     width: 1200px;
     margin: auto;
-    font-family: 'WONDotum';
     color: #434343;
 }
 
@@ -72,12 +71,10 @@ iframe{
 
 .video-name{
     font-size: 20px;
-    font-family: 'WONDotum';
 }
 
 .video-uploader{
     margin-top: -1rem;
-    font-family: 'WONDotum';
 }
 
 .video-list{
@@ -86,4 +83,11 @@ iframe{
 
 .club-select{
     text-align: right;
+}
+
+select{
+    background-color: #FFD0D6;
+    color: #ffffff;
+    border-color: transparent;
+    padding: 1rem;
 }

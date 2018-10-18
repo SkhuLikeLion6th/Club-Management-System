@@ -13,18 +13,24 @@
  *= require_tree .
  *= require_self
  */
+@font-face { font-family: 'SangSangAnt'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/SangSangAnt.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'SDMiSaeng'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDMiSaeng.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'DAONOTTERGOTHICM'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.3/DAONOTTERGOTHICM.woff') format('woff'); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'WONDotum'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONDotum.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'netmarbleL'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleL.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+p, div, select{
+    font-family: 'netmarbleL';
+}
+
 
 /*nav bar*/
 
 
 .header{
     display: block;
-    /*position: fixed;*/
     top:0;
     right:0;
     left: 0;
@@ -36,18 +42,30 @@
     position: relative;
 }
 
-.header-content{
+
+.header-bottom{
     font-size: 17px;
     margin: auto;
     display: flex;
     width: 1440px;
     align-items: center;
+    flex-direction: row;
+}
+
+.top-menu-outline{
+    position: absolute;
+    margin-left: auto;
+    top: 0;
+    right: 9.4rem;
 }
 
 .menu{
     display: flex;
     justify-content: space-around;
     flex: 1;
+    padding-top: 0.6rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 
 .logo-link{
@@ -57,16 +75,22 @@
 }
 
 .logo{
-    padding-top: 1.1rem;
-    text-align: center;
+    
 }
 
 /*menu shape*/
+.top-menu{
+    font-size: 17px;
+    font-family: 'WONDotum';
+    color: #806B6E;
+    padding: 0 1.2rem;
+    display: inline-block;
+}
 
 .menu-pink{
-    font-family: 'WONDotum';
-    font-weight: lighter;
-    font-size: 1.05rem;
+    text-shadow: 0.3px 0.3px  0.1px #D6D5D5;
+    font-family: 'netmarbleL';
+    font-size: 1.1rem;
     margin: 0.6rem;
     text-align: center;
     flex: 1 1 auto;
@@ -78,8 +102,9 @@
 }
 
 .menu-yellow{
-    font-family: 'WONDotum';
-    font-size: 1.05rem;
+    text-shadow: 0.3px 0.3px  0.1px #D6D5D5;
+    font-family: 'netmarbleL';
+    font-size: 1.1rem;
     margin: 0.6rem;
     text-align: center;
     flex: 1 1 auto;
@@ -133,7 +158,7 @@ footer{
 }
 
 .name-item{
-    font-family: 'WONDotum';
+    font-family: 'netmarbleL';
     font-size: 0.95rem;
     padding-left: 1.3rem;
     color: white;
@@ -152,7 +177,7 @@ footer{
 }
 
 .footer-bottom{
-    font-family: 'WONDotum';
+    font-family: 'netmarbleL';
     font-size: 0.875rem;
     color: white;
     margin-top: 1.2rem;

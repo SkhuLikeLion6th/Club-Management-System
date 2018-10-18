@@ -1,8 +1,14 @@
 class PostController < ApplicationController
     
     def index
-        @posts = Post.all.order('created_at desc')
+        @users = User.new
         @clubs = Club.all
+        @club = ClubMember.find_by_user_id(current_user.id)
+        
+        @posts = Post.all.order('created_at desc')
+        
+        @club_check = ClubMember.find_by_user_id(current_user.id)       
+        puts @club_id
     end
     
     def new
@@ -10,13 +16,14 @@ class PostController < ApplicationController
     end
     
     def create
-        @club = current_user.club.id
-        @posts = Post.new(
+        @club_id = ClubMember.find_by_user_id(current_user.id).club_id
+        @posts = Post.new( 
             user_id: current_user.id,
-            club_id: @club.id,
+            club_id: @club_id.to_i,
             content: params[:content], 
             title: params[:title] 
             )
+            puts #{@club_id}
         if @posts.save
             redirect_to '/post/index'
         else

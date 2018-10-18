@@ -27,18 +27,18 @@ Grade.create(grade_name: '3학년')
 Grade.create(grade_name: '4학년')
 
 ## 단체 (동아리, 소모임)
-Club.create(club_name: '멋쟁이사자처럼', introduce: 'Hack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your LifeHack Your Life')
-Club.create(club_name: '개발자들', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_1', introduce: '길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트길게 적어보기 테스트')
-Club.create(club_name: 'TEST_CLUB_2', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_3', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_4', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_5', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_6', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_7', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_8', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_9', introduce: 'Hack Your Life')
-Club.create(club_name: 'TEST_CLUB_10', introduce: 'Hack Your Life')
+Club.create(club_name: '멋쟁이사자처럼', introduce: 'Hack Your Life! 나만의 서비스를 내손으로')
+Club.create(club_name: '개발자들', introduce: '성공회대 정통 개발 동아리 개발자들')
+Club.create(club_name: 'Puzzle', introduce: '성공회대 공연기획 동아리!')
+Club.create(club_name: 'BIS', introduce: '성공회대 밴드 동아리')
+Club.create(club_name: '극연꾼', introduce: '성공회대 연극 동아리')
+Club.create(club_name: 'M.R.Crew', introduce: '성공회대 힙합&알앤비 동아리')
+Club.create(club_name: 'ELPIS', introduce: '성공회대 밴드 동아리')
+Club.create(club_name: 'C.O.L', introduce: '성공회대 락밴드 동아리')
+Club.create(club_name: 'NUTEE - 누티', introduce: '성공회대학교 커뮤니티')
+Club.create(club_name: '아침햇살', introduce: '성공회대 동아리 아침햇살')
+Club.create(club_name: 'S.owl', introduce: '성공회대 개발 동아리 소울')
+Club.create(club_name: 'SKHU''S', introduce: '성공회대 보안 동아리')
 
 
 
@@ -109,6 +109,7 @@ ClubMember.create(club_id: 2, user_id: 6)
 ClubMember.create(club_id: 2, user_id: 7)
 ClubMember.create(club_id: 2, user_id: 4) 
 
+# Puzzle 단체 소속
 
 #지원 양식
 ApplyForm.create(club_id: 1, title1: '당신이 만들고 싶은 서비스는 무엇인가요?', title2: '가장 기억에 남는 웹서비스가 있다면 무엇인가요?' , title3: '멋쟁이 사자처럼에 대해서 아는 것을 말씀해주세요.', title4: '멋쟁이 사자처럼은 우수한 동아리이지만, 그만큼 엄격한 규칙을 가지고 있습니다. 이를 지키실 수 있나요?', title5: '마지막으로 하고 싶은 말을 적어주세요')

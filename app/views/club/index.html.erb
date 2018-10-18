@@ -11,7 +11,9 @@
             <% @clubs.each do |x| %>
                 <div class=" club-card">
                     <div class="club-index-top">
-                        <img src="/assets/rectangular.png" alt="square" width="100%">
+                        <a href="/club/club_view/<%= x.id %>">
+                            <img src="/assets/clubs/<%=x.id%>.jpg" class="club-img" alt="square" width="100%">
+                        </a>
                         <div class="club-index-name"><a href="/club/club_view/<%= x.id %>"><%= x.club_name %></a></div>
                         <% if user_signed_in? %>
                             <!--현재 로그인한 유저가 서버관리자면 수정, 삭제를 할 수 있다.-->

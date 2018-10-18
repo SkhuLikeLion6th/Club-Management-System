@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20181007085032) do
     t.integer  "club_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["club_id"], name: "index_posts_on_club_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

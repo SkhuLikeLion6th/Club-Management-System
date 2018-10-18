@@ -9,7 +9,9 @@
                         
                             <div class="club-card">
                                 <div class="club-index-top">
-                                    <img src="/assets/rectangular.png" alt="square" width="100%">
+                                    <a href="/club/club_view/<%= x.club.id %>">
+                                        <img src="/assets/clubs/<%=x.id%>.jpg" alt="square" width="100%">
+                                    </a>
                                     <div class="club-index-name"><a href="/club/club_view/<%= x.club.id %>"><%= x.club.club_name %></a></div>
                                 </div>
                                 <svg class="svg-line" height="25" width="150">

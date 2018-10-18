@@ -6,7 +6,7 @@
     <div class="content-outline">
       
         <!-- 단체별 행사 등 광고 -->
-        <div class="content">
+        <div class="carousel_box">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -44,7 +44,7 @@
                 <div class="mainpage-club-card">
                     <div class="mainpage-club-index-top">
                         <a href="/club/club_view/<%= i.id %>">
-                          <img src="/assets/rectangular.png" alt="square" width="100%">
+                          <img src="/assets/clubs/<%=i.id%>.jpg" class="club-img" alt="square" width="100%">
                         </a>
                         <div class="mainpage-club-index-name">
                           <a href="/club/club_view/<%= i.id %>"><%= i.club_name %></a>

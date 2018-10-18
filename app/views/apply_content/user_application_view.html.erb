@@ -1,131 +1,155 @@
+<!-- => user_application_view.css -->
+
 <!--지원자의 지원서 내용을 볼 수 있는 페이지-->
 <div class="content-outline">
     <div class="content">
         <div class="content-title">지원 내용 확인</div>
-        <p>지원자: <%= User.find(@content.user_id).name %></p>
-        <p>작성일: <%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></p>
+        <div class="user_apply_info">
+            <p class="user_apply_name"> -<%= User.find(@content.user_id).name %>-</p>
+            <p class="user_apply_date">작성일: <%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></p>
+        </div>
         <!--첫번째 질문-->
         <% unless @form.title1 == nil %>
             <div class="apply-content-outline">
-                <svg class="svg-line-apply-index-pink" height="100" width="100">
-                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
-                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 1.</div>
-                        <%=@form.title1%>
+                        <div class="question_box">
+                            <%=@form.title1%>
+                        </div>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 1.</div>
-                        <%= @content.content1 %>
+                        <div class="answer_box">
+                            <%= @content.content1 %>
+                        </div>
                     </div>
                 </div>
                 <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
                 </div>
             </div>
         <% end %>
         <!--두번째 질문-->
         <% unless @form.title2 == nil %>
             <div class="apply-content-outline">
-                <svg class="svg-line-apply-index-pink" height="100" width="100">
-                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
-                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 2.</div>
-                        <%=@form.title2%>
+                        <div class="question_box">
+                            <%=@form.title2%>
+                        </div>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 2.</div>
-                        <%= @content.content2 %>
+                        <div class="answer_box">
+                            <%= @content.content2 %>
+                        </div>
                     </div>
                 </div>
                 <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
                 </div>
             </div>
         <% end %>
         <!--세번째 질문-->
         <% unless @form.title3 == nil %>
             <div class="apply-content-outline">
-                <svg class="svg-line-apply-index-pink" height="100" width="100">
-                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
-                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 3.</div>
-                        <%=@form.title3%>
+                        <div class="question_box">
+                            <%=@form.title3%>
+                        </div>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 3.</div>
-                        <%= @content.content3 %>
+                        <div class="answer_box">
+                            <%= @content.content3 %>
+                        </div>
                     </div>
                 </div>
                 <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
                 </div>
             </div>
         <% end %>
         <!--네번째 질문-->
         <% unless @form.title4 == nil %>
             <div class="apply-content-outline">
-                <svg class="svg-line-apply-index-pink" height="100" width="100">
-                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
-                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 4.</div>
-                        <%=@form.title4%>
+                        <div class="question_box">    
+                            <%=@form.title4%>
+                        </div>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 4.</div>
-                        <%= @content.content4 %>
+                        <div class="answer_box">
+                            <%= @content.content4 %>
+                        </div>
                     </div>
                 </div>
                 <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
                 </div>
             </div>
         <% end %>
         <!--다섯번째 질문-->
         <% unless @form.title5 == nil %>
             <div class="apply-content-outline">
-                <svg class="svg-line-apply-index-pink" height="100" width="100">
-                    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />
-                    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />
-                </svg>
+                <!--<svg class="svg-line-apply-index-pink" height="100" width="100">-->
+                <!--    <line x1="0" y1="20" x2="80" y2="20" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--    <line x1="20" y1="0" x2="20" y2="80" style="stroke: #FFD0D6; stroke-width:5" />-->
+                <!--</svg>-->
                 <div class="apply-content">
                     <div class="apply-question">
                         <div class="question-q">Q 5.</div>
-                        <%=@form.title5%>
+                        <div class="question_box">
+                            <%=@form.title5%>
+                        </div>
                     </div>
                     <div class="apply-answer">
                         <div class="answer-a">A 5.</div>
-                        <%= @content.content5 %>
+                        <div class="answer_box">
+                            <%= @content.content5 %>
+                        </div>
                     </div>
                 </div>
                 <div class="structure-end">
-                    <svg class="svg-line-apply-index-yellow" height="100" width="100">
-                        <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />
-                        <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />
-                    </svg>
+                    <!--<svg class="svg-line-apply-index-yellow" height="100" width="100">-->
+                    <!--    <line x1="20" y1="80" x2="100" y2="80" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--    <line x1="80" y1="20" x2="80" y2="100" style="stroke: #FEE19F; stroke-width:5" />-->
+                    <!--</svg>-->
                 </div>
             </div>
         <% end %>

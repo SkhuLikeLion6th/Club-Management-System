@@ -41,11 +41,23 @@
   <!--nav bar-->
   <div class="header">
     <div class="header-wrapper">
-        <div class="header-content">
+        <div class="header-bottom">
+            <div class="top-menu-outline">
+              <% if current_user == nil %>
+  				  		<a class="top-menu" href="/users/sign_in">로그인</a>
+  				  		<a class="top-menu" href="/users/sign_up">회원가입</a>
+  				  	<% else %>
+  				  	  <a class="top-menu" href="/users/index">내 정보</a>
+  				  	  <a class="top-menu" href="/users/sign_out">로그아웃</a>
+  				  	<% end %>
+            </div>
+            <a class="logo-link" href="/">
+                <img class="logo" src="/assets/logo.png" alt="logo-img" width="250px">
+            </a>
             <div class="menu">
                 <!--<a class="menu-yellow" href="#">전체 회원 목록</a> 사이트 관리자만 볼 수 있음-->
                 <a class="menu-pink" href="/club/index">동아리 목록</a>
-                <a class="menu-yellow" href="/club/appliable_club">현재 가입 가능 동아리</a>
+                <a class="menu-yellow" href="/club/appliable_club">모집중</a>
                 <% if user_signed_in? %>
                   <% if current_user.authorization == '2' %>
                     <a class="menu-pink" href="/club/my_club">내 동아리</a>
@@ -53,32 +65,23 @@
                     <a class="menu-pink" href="/apply_content/index">지원자 관리</a>
                   <% end %>
                 <% end %>
-            </div>
-            <a class="logo-link" href="/">
-                <img class="logo" src="/assets/logo.png" alt="logo-img" width="250px">
-            </a>
-            <div class="menu">
                 <% if user_signed_in? && (current_user.authorization == "1" || current_user.authorization == "0") %>
                   <a class="menu-yellow video_new" href="/video/new" title="위치 확정 아님">동영상 등록</a>
                 <% end %>
-                <a class="menu-pink video_index" href="/video/index" title="위치 확정 아님">동영상 보기</a>
+                <% if user_signed_in? && (current_user.authorization == "2") %>
+                  <a class="menu-yellow video_index" href="/video/index" title="위치 확정 아님">동영상</a>
+                <% else %>
+                  <a class="menu-pink video_index" href="/video/index" title="위치 확정 아님">동영상</a>
+                <% end %>
                 
-				      <% if current_user == nil %>
-  				  		<a class="menu-yellow" href="/users/sign_in">로그인</a>
-  				  		<a class="menu-pink" href="/users/sign_up">회원가입</a>
-				        
-				      <% else %>
+				     
+				      <% if current_user != nil %>
 				        <% if current_user.authorization == '0' %>
     			        <a class="menu-yellow" href="/club/club_members">전체 회원 목록</a>
-    			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% elsif current_user.authorization == '1' %>
-    			        
     			        <a class="menu-yellow" href="/club/club_members">단체 회원 목록</a>
-    			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% else %>
-    			        <a class="menu-yellow" href="/users/index">내 정보</a>
     			      <% end %>
-    		  		  <a class="menu-pink" href="/users/sign_out">로그아웃</a>
 				      <% end %>
 				      
             </div>

@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     unless ClubMember.find_by_user_id(current_user.id) == nil
       @club_id = ClubMember.find_by_user_id(current_user.id).club_id
     end
+    
+    @clubs = ClubMember.all
   end
 
   # def new

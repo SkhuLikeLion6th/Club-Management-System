@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.string :content
       t.text :title
       t.belongs_to :user
-      t.belongs_to :club
+      t.integer :club_id
       
       t.timestamps
     end

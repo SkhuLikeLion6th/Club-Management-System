@@ -6,10 +6,7 @@
 }
 
 .apply-content{
-    padding-top: 50px;
-    padding-left: 60px;
-    padding-bottom: 50px;
-    padding-right: 60px;
+    padding: 25px 60px;
     margin: auto;
 }
 
@@ -46,6 +43,7 @@
     font-size: 26px;
     padding-right: 10px;
     padding-bottom: 5px;
+
 }
 
 .button-apply-index-edit{

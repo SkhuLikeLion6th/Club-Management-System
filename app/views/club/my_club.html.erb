@@ -8,7 +8,9 @@
                     <% if current_user.id == x.user_id %>
                         
                             <div class="club-card">
-                                <img src="/assets/rectangular.png" alt="square" width="100%">
+                                <a href="/club/club_view/<%= x.club.id %>">
+                                    <img src="/assets/clubs/<%=x.club_id%>.jpg" class="club-img" alt="square" width="100%">
+                                </a>
                                 <div class="club-index-name"><a href="/club/club_view/<%= x.club.id %>"><%= x.club.club_name %></a></div>
                                 <svg class="svg-line" height="25" width="150">
                                     <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
