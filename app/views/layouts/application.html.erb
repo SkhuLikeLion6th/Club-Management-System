@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
   
-	<!-- meta data -->
+	  <!-- meta data -->
 	<meta charset="UTF-8">
 	<meta name="author" content="BE: 김승래, 함진경, 한현수 / FE: 박결, 홍다은">
 	<meta name="description" content="성공회대 모임 찾기/가입 플렛폼입니다.">
 	<meta name="keywords" content="성공회대, 동아리, 소모임, 학생회, 단체"> 
 	
-	<!--viewport 반응형준비-->
+	  <!--viewport 반응형준비-->
   <meta name="viewport" content="width=device-width, user-scalable=no">
     
     <!--파비콘-->
@@ -17,9 +17,8 @@
     <!--title-->
   <title>Ari Check</title>
   
-  <!--link-->
+    <!--link-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  
   
     <!--style-->
 	<link rel="stylesheet" href="/assets/reset.css">
@@ -56,33 +55,20 @@
             </a>
             <div class="menu">
                 <!--<a class="menu-yellow" href="#">전체 회원 목록</a> 사이트 관리자만 볼 수 있음-->
-                <a class="menu-pink" href="/club/index">동아리 목록</a>
+                <a class="menu-pink" href="/club/index">단체 목록</a>
                 <a class="menu-yellow" href="/club/appliable_club">모집중</a>
-                <% if user_signed_in? %>
-                  <% if current_user.authorization == '2' %>
-                    <a class="menu-pink" href="/club/my_club">내 동아리</a>
-                  <% else %>
-                    <a class="menu-pink" href="/apply_content/index">지원자 관리</a>
-                  <% end %>
-                <% end %>
-                <% if user_signed_in? && (current_user.authorization == "1" || current_user.authorization == "0") %>
-                  <a class="menu-yellow video_new" href="/video/new" title="위치 확정 아님">동영상 등록</a>
-                <% end %>
-                <% if user_signed_in? && (current_user.authorization == "2") %>
-                  <a class="menu-yellow video_index" href="/video/index" title="위치 확정 아님">동영상</a>
-                <% else %>
-                  <a class="menu-pink video_index" href="/video/index" title="위치 확정 아님">동영상</a>
-                <% end %>
-                
-				     
-				      <% if current_user != nil %>
-				        <% if current_user.authorization == '0' %>
-    			        <a class="menu-yellow" href="/club/club_members">전체 회원 목록</a>
-    			      <% elsif current_user.authorization == '1' %>
-    			        <a class="menu-yellow" href="/club/club_members">단체 회원 목록</a>
-    			      <% else %>
-    			      <% end %>
-				      <% end %>
+                <a class="menu-pink" href="/meetings">달력</a>
+                <a class="menu-yellow video_index" href="/video/index">동영상</a>
+  				      <% if current_user != nil %>
+  				        <% if current_user.authorization == '0' %>
+      			        <a class="menu-pink" href="/club/member_management">회원 관리</a>
+      			      <% elsif current_user.authorization == '1' %>
+      			        <a class="menu-pink" href="/club/member_management">회원 관리</a>
+      			      <% elsif current_user.authorization == '2' %>
+                      <a class="menu-pink" href="/club/my_club">가입한 단체</a>
+      			      <% else %>
+      			      <% end %>
+  				      <% end %>
 				      
             </div>
         </div>
@@ -99,11 +85,11 @@
           <img src="/assets/logo-footer.png" alt="logo-footer" class="logo-footer">
           <div class="footer-name">
             <p class="name-item">만든이 :</p>
-            <p class="name-item">김승래</p>
-            <p class="name-item">함진경</p>
-            <p class="name-item">박결</p>
-            <p class="name-item">한현수</p>
-            <p class="name-item">홍다은</p>
+            <a href='https://github.com/Seungpang' class="name-item"><p>김승래</p></a>
+            <a href='https://github.com/HamJinKyoung' class="name-item"><p>함진경</p></a>
+            <a href='https://github.com/Kyeul' class="name-item"><p>박결</p></a>
+            <a href='https://github.com/HanHyunsoo' class="name-item"><p>한현수</p></a>
+            <a href='https://github.com/hde1018' class="name-item"><p>홍다은</p></a>
           </div>
           <div class="social-buttons">
             <!-- 동연 페이스북 연결 -->

@@ -3,7 +3,7 @@ class ApplyContentController < ApplicationController
     # @forms = ApplyForm.all.reverse
     if user_signed_in?
       @current_check_club = ClubMember.find_by_user_id(current_user.id)
-      @contents= ApplyContent.all.reverse
+      @contents = ApplyContent.all.reverse
     else
       redirect_to '/'
     end
@@ -81,13 +81,13 @@ class ApplyContentController < ApplicationController
     if user_signed_in?
       if current_user.authorization == '0'
         @content.destroy
-        redirect_to '/apply_content/user_application_list'
+        redirect_to '/'
       elsif current_user.authorization == '1' && @content.apply_form.club_id == ClubMember.find_by_user_id(current_user.id).club_id
         @content.destroy
-        redirect_to '/apply_content/user_application_list'
+        redirect_to '/'
       elsif current_user.authorization == '2' && @content.user_id == current_user.id
         @content.destroy
-        redirect_to '/apply_content/user_application_list'
+        redirect_to '/'
       else
         redirect_to '/'
       end

@@ -1,0 +1,25 @@
+.member_manage_body{
+    height: 600px;
+}
+.member_middle{
+    margin-top: 300px;
+    text-align: center;
+}    
+.button_member_manage{
+	border: none;
+	outline: none;
+	height: 200px;
+	width: 200px;
+	background: #FEE19F;
+	font-size: 18px;
+	border-radius: 20px;
+	display: inline-block;
+}
+.button_member_manage p{
+    font-size: 40px;
+    color: #444;
+    padding-top: 70px;
+}
+.button_manage_right{
+    margin-left: 50px;
+}

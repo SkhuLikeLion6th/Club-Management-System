@@ -1,11 +1,6 @@
 <div class="content-outline">
     <div class="content">
-        <div class="content-title">동아리 목록</div>
-        
-        <!-- 무시 -->
-        <% if user_signed_in? %>
-            <p>유저 권한: <%= current_user.authorization %></p>
-        <% end %>
+        <div class="content-title">단체 목록</div>
         
         <div class="club-card-align">
             <% @clubs.each do |x| %>
@@ -30,7 +25,7 @@
                     <svg class="svg-line" height="25" width="150">
                         <line x1="0" y1="0" x2="150" y2="0" style="stroke: #FFD0D6; stroke-width:5" />
                     </svg>
-                    <div class="club-index-intro"><p><%= x.introduce %>Hack your life! <br>내가 만들고 싶은 페이지를 내 손으로</p></div>
+                    <div class="club-index-intro"><p><%= x.introduce %></p></div>
                 </div>  
             <% end %>
         </div>

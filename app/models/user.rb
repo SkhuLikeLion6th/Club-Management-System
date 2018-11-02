@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :club_members
   has_many :videos
   has_many :posts
+  has_many :meetings
+  has_many :clubs
   
   belongs_to :department
   belongs_to :grade

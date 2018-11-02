@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem "simple_calendar", "~> 2.0"
 
 gem 'carrierwave'
 

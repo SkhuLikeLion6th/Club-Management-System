@@ -1,12 +1,12 @@
 class VideoController < ApplicationController
-  before_action :authenticate_user!
+
 
   
   def index
     @user = User.new
     @club = Club.new
     @videos = Video.all.order('created_at desc')
- 
+    @clubs = Club.all
     
 
   end
@@ -22,10 +22,13 @@ class VideoController < ApplicationController
   
   
   def new
+    @club_id = ClubMember.find_by_user_id(current_user.id).club_id
+    puts #{@club_id}
   end
   
   def create
-    @videos = Video.new(user_id: current_user.id, content: params[:content], title: params[:title] )
+    @club_id = ClubMember.find_by_user_id(current_user.id).club_id
+    @videos = Video.new(user_id: current_user.id, club_id: @club_id.to_i ,content: params[:content], title: params[:title] )
     if @videos.save
       redirect_to '/video/index'
     else
@@ -45,6 +48,7 @@ class VideoController < ApplicationController
   def update
     @videos = Video.find(params[:id])
     redirect_to root_path if @videos.user.id != current_user.id
+    @videos = Video.find(params[:club_id])
     @videos.title = params[:title]
     @videos.content = params[:content]
     if @videos.save
@@ -56,7 +60,9 @@ class VideoController < ApplicationController
   
 
   
-  def video_list
-    
+  def club_video
+    @clubs = Club.all
+    @club_id = params[:club_id].to_i
+    @videos = Video.all.order('created_at desc')
   end
 end

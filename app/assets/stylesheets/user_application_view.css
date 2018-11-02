@@ -1,17 +1,20 @@
 .user_apply_info{
-    text-align: center;
+    width: 470px;
+    margin: auto;
+    margin-bottom: 15px;
+    border: 1.5px solid #FFD0D6;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.user-info-line{
     position: relative;
-    margin-bottom: 50px;
 }
-.user_apply_name{
-    font-size: 30px;
-    color: #555;
+
+.user_info-title{
+    text-align: right;
 }
-.user_apply_date{
-    position: absolute;
-    top:70px;
-    right:0;
-}
+
 .question_box{
     display: inline;
     padding-bottom: 3px;

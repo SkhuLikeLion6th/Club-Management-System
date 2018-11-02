@@ -140,3 +140,23 @@
     border-radius: 20px;
     display: inline-block;
 }
+
+/* apply_form */
+.apply_form_input input[type="text"]{
+	/*border-bottom: 1px solid #000;*/
+	/*background: transparent;*/
+	/*outline: none;*/
+	/*height: 40px;*/
+	/*color: #222;*/
+	/*font-size: 25px;*/
+	/*width: 120%;*/
+    width: 100%;
+    border: 1.5px solid #9b9596;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    padding: 10px 15px;
+    outline: none;
+    
+}
+

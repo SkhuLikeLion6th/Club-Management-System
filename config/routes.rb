@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
+  resources :club_meetings
+  resources :meetings
+  
+  # 회원 관리
+  get '/club/member_management'
+  # 전체일정
+  get '/meetings/:id' => 'meetings#show'
+  
   get 'ect/repairing_page'
 
   resources :video, except: [:show]
   # 유튜브 동영상 링크 업로드 하는 곳
-  post '/video/new' => 'video#create'
+  post '/video/create/:club_id' => 'video#create'
   # 유튜브 동영상 보는곳
   get '/video/index' => 'video#index' # 내용물 확인을 위해 '결' 씀
-
+  #각 단체별 동영상보는곳
+  get '/video/club_video/:club_id' => 'video#club_video'
   root 'front#index'
   
   get 'apply_content/create'
@@ -106,9 +115,17 @@ Rails.application.routes.draw do
   
   get 'post/index' => 'post#index'
   
+  get 'post/club_index/:post_id' => 'post#club_index'
+  
   get 'post/new' => 'post#new'
   
-  post 'post/create' => 'post#create'
+  post 'post/create/:club_id' => 'post#create'
+  
+  get 'post/edit/:post_id' => 'post#edit'
+  
+  post 'post/update/:post_id' => 'post#update'
+  
+  get 'post/destroy/:post_id' => 'post#destroy'
   
   # 점검중 페이지
   get 'ect/repairing_page' => 'ext#repairing_page'

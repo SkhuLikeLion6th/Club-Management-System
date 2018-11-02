@@ -107,14 +107,14 @@ class ClubController < ApplicationController
   end
   
   def club_view
-    @club = Club.find(params[:club_id]) 
+    @club = Club.find(params[:club_id])
     @members = ClubMember.all # 클럽 멤버들을 모두 불러옴
     
     # 현재 로그인 한 유저가 현재 보고있는 클럽에 속해있는지 확인하는 함수
     if user_signed_in?
-      @current_check_club = ClubMember.find_by_user_id(current_user.id) && ClubMember.find_by_club_id(@club.id)
+      @current_check_club = ClubMember.find_by_club_id(@club.id) && ClubMember.find_by_user_id(current_user.id) 
     end
-    
+    # puts @current_check_club.club_id
     # 보고있는 클럽의 옵션테이블을 확인하는 테이블을 저장.
     @current_check_option = Option.find_by_club_id(@club.id)
   end

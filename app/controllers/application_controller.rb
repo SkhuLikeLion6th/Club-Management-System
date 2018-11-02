@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery prepend: :true
   # before_action :authenticate_model!
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  # before_action :set_time_zone, if: :user_signed_in?
  
 
 
@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end    
   
+  # private
+
+  #   def set_time_zone
+  #     Time.zone = current_user.time_zone
+  #   end  
 end

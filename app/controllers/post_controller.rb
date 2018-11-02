@@ -7,12 +7,14 @@ class PostController < ApplicationController
         
         @posts = Post.all.order('created_at desc')
         
-        @club_check = ClubMember.find_by_user_id(current_user.id)       
-        puts @club_id
+    end
+    
+    def club_index
+        @posts = Post.find(params[:post_id])
     end
     
     def new
-        
+        @club_id = ClubMember.find_by_user_id(current_user.id).club_id
     end
     
     def create
@@ -23,7 +25,6 @@ class PostController < ApplicationController
             content: params[:content], 
             title: params[:title] 
             )
-            puts #{@club_id}
         if @posts.save
             redirect_to '/post/index'
         else
@@ -34,8 +35,9 @@ class PostController < ApplicationController
     end
     
     def update
-         @posts = Post.find(params[:id])
+         @posts = Post.find(params[:post_id])
          redirect_to root_path if @posts.user.id != current_user.id
+        #  @posts.club_id = params[:club_id]
          @posts.title = params[:title]
          @posts.content = params[:content]
          if @posts.save
@@ -46,11 +48,11 @@ class PostController < ApplicationController
     end
     
     def edit
-        @posts = Post.find(params[:id])
+        @posts = Post.find(params[:post_id])
     end
     
     def destroy
-        @posts = Post.find(params[:id])
+        @posts = Post.find(params[:post_id])
         @posts.destroy
         redirect_to root_path
     end

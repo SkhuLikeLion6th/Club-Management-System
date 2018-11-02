@@ -5,8 +5,43 @@
     <div class="content">
         <div class="content-title">지원 내용 확인</div>
         <div class="user_apply_info">
-            <p class="user_apply_name"> -<%= User.find(@content.user_id).name %>-</p>
-            <p class="user_apply_date">작성일: <%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></p>
+            <div class="row">
+                <div class="user_info-title col-4">이름</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).name %></div>
+                <div class="user_info-title col-4">전화번호</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).phone_number %></div>
+                <div class="user_info-title col-4">이메일</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).mail %></div>
+                <div class="user_info-title col-4">학번</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).email %></div>
+                <div class="user_info-title col-4">학부/학과</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).department.department_name %></div>
+                <div class="user_info-title col-4">학년</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= User.find(@content.user_id).grade_id %></div>
+                <div class="user_info-title col-4">작성일자</div>
+                <svg class="user-info-line col-1" height="18" width="10">
+                    <line x1="0" y1="0" x2="0" y2="18" style="stroke: #DCDCDC">
+                </svg>
+                <div class="col-7"><%= @content.updated_at.strftime('%Y년 %m월 %d일 %H시%M분') %></div>
+            </div>
         </div>
         <!--첫번째 질문-->
         <% unless @form.title1 == nil %>
@@ -21,7 +56,7 @@
                         <div class="question_box">
                             <%=@form.title1%>
                         </div>
-                    </div>
+                    </div>                                                                                             
                     <div class="apply-answer">
                         <div class="answer-a">A 1.</div>
                         <div class="answer_box">
@@ -156,10 +191,8 @@
         <div class="button-in-apply-content">
             <!--현재 로그인한 유저가 일반유저면 내용을 수정,삭제할 수 있다-->
             <% if current_user.authorization == '2' %>
-                <% if ClubMember.find_by_user_id(@content.user_id) == nil %>
                     <a href="/apply_content/edit/<%=@content.id%>"><div class="button-apply-index-edit">수정하기</div></a>
                     <a href="/apply_content/destroy/<%=@content.id%>"><div class="button-apply-index-edit">삭제하기</div></a>
-                <% end %>
             <!--현재 로그인한 유저가 서버관리자 또는 단체관리자이면 글을 쓴 유저를 동아리에 등록하거나 글을 삭제할 수 있다-->
             <!--글 삭제하는거는 db에 삭제된다는 의미이므로 이부분은 논의를 해야함-->
             <% else %>

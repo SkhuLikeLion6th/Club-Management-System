@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181007085032) do
+ActiveRecord::Schema.define(version: 20181023070434) do
 
   create_table "apply_contents", force: :cascade do |t|
     t.integer  "apply_form_id"
@@ -35,11 +35,23 @@ ActiveRecord::Schema.define(version: 20181007085032) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "club_meetings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content"
+    t.integer  "club_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "club_members", force: :cascade do |t|
     t.integer  "club_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["club_id"], name: "index_club_members_on_club_id"
+    t.index ["user_id"], name: "index_club_members_on_user_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -58,6 +70,16 @@ ActiveRecord::Schema.define(version: 20181007085032) do
 
   create_table "grades", force: :cascade do |t|
     t.string   "grade_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content"
+    t.integer  "club_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,9 +120,10 @@ ActiveRecord::Schema.define(version: 20181007085032) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "content"
+    t.text     "title"
     t.integer  "user_id"
+    t.integer  "club_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_videos_on_user_id"

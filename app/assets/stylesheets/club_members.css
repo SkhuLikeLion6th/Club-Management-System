@@ -1,49 +1,56 @@
-
 .clubmember-outline{
     margin-top: 40px;
     margin-bottom: 50px;
-    /*min-height: 500px;*/
+    min-height: 500px;
     
 }
 
 .clubmember-content{
-    width: 85%;
+    width: 950px;
     margin: auto;
     font-family: 'netmarbleL';
     color: #434343;
 }
 
 .clubmember-title{
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     text-align: center;
     font-family: 'netmarbleL';
     margin-bottom: 40px;
+    padding-top: 60px;
 }
 
 .clubmember-table{
     padding: 10px;
     width: 100%;
-    border: 3px solid #ff8796;
-    border-radius: 20%;
+    border-bottom: 3px solid transparent;
 }
+
+th{
+    font-size: 22px;
+}
+
+td{
+    font-size: 19px;
+}
+
 .clubmember-table th{
     text-align:center;
-    padding: 8px 0;
-    border: 1px solid #ff8796;
+    padding: 8px;
+    border-bottom: 2px solid #696969;
 }
 .clubmember-table td{
-    border: 1px solid #ff8796;
+    border-bottom: 2px solid #DCDCDC;
     text-align:center;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 #clubmember-del{
     padding: 1px 8px;
-    background-color: #FFD0D6;
-    border:1px solid #ff8796;
-    border-radius: 20px;
+    border:2px solid #DCDCDC;
+    border-radius: 5px;
 }
 #clubmember-del:hover{
-    background-color: #fc5066;
+    background-color: #696969;
     color: #fff;
 }
 

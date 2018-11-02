@@ -1,6 +1,14 @@
+.apply-form-outline{
+    width: 1000px;
+    margin: auto;
+    padding: 15px;
+    position: relative;
+}
+
 .button-in-apply-form{
     margin: auto;
     margin-top: 4rem;
+    margin-bottom: 100px;
     text-align: center;
 }
 
@@ -30,4 +38,10 @@
     border-radius: 20px;
     display: inline-block;
     border-color: white;
+}
+.apply_form_p{
+    /*display:inline-block;*/
+    font-size: 25px;
+    padding-left: 30px;
+    color: #555;
 }

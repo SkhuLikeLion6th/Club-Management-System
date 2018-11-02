@@ -30,7 +30,7 @@
 
 }
 
-.mypagebox p{
+.mypagebox .my_info{
     font-size: 30px;
 	font-weight: bold;
 	color: #555;
@@ -38,14 +38,18 @@
 	padding-top: 15px;
 }
 .mypage_club_box{
-	position: relative;
+	/*position: relative;*/
+	margin-top: 30px;
 }
 
 #mypage_club{
-	position: absolute;
-	left: 39%;
-	top: 25px;
-	font-size: 35px;
+	/*position: absolute;*/
+	/*left: 39%;*/
+	/*top: 25px;*/
+	margin: 35px 0 15px 0;
+	font-weight: bold;
+	text-align: center;
+	font-size: 40px;
 	color: #333;
 }
 
@@ -86,14 +90,15 @@
 	background: #ffc107;
 }
 .mypage-above-my_club{
-	display: block;
-	margin: 0 auto;
-	margin-top: 130px;
+	/*display: inline;*/
+	/*margin: 0 auto;*/
+	/*margin-top: 130px;*/
+	margin: 40px 0;
 }
 
 #mypage_myclub{
-	
-	float: left;
+	/*float: left;*/
+	display: inline;
 	/*margin-top: 90px;*/
 	width: 45%;
 	/*text-align: center;*/
@@ -102,7 +107,7 @@
 	font-size: 40px;
 	font-family: 'Do Hyeon', sans-serif;
 	padding-top: 15px;
-	margin-left: 10px;
+	padding-left: 20px;
 }
 
 
@@ -116,7 +121,7 @@ a#mypage_myclub:hover{
 #mypage_myapply{
 	width: 50%;
 	text-align: center;
-	border-bottom: 4px solid #FEE19F;
+	/*border: 2px solid #FEE19F;*/
 	background-color: transparent;
 	font-size: 30px;
 	font-family: 'Do Hyeon', sans-serif;
